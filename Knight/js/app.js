@@ -1,5 +1,16 @@
 $(document).ready(function() {
+   // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDGGznJOne1Hcc7r4s8q8DFqOsrOX78OiI",
+    authDomain: "burpp-project-d026b.firebaseapp.com",
+    databaseURL: "https://burpp-project-d026b.firebaseio.com",
+    storageBucket: "burpp-project-d026b.appspot.com",
+    messagingSenderId: "502802226183"
+  };
+  firebase.initializeApp(config);
 
+  var database = firebase.database();
+  
     // Capture Button Click
     $("#btn-food").on("click", function() {
         // Grabbed value from text boxes
@@ -15,10 +26,16 @@ $(document).ready(function() {
 
         var queryURL = crossoriginURL + edamamURL + search + keys;
 
-        var config = { url: queryURL, method: 'GET' };
+        var config = {
+            url: queryURL,
+            method: 'GET'
+        };
         console.log("url before query: " + queryURL);
 
-        $.ajax({ url: queryURL, method: 'GET' })
+        $.ajax({
+                url: queryURL,
+                method: 'GET'
+            })
             .done(function(response) {
                 console.log(".done: " + response);
 
@@ -41,9 +58,19 @@ $(document).ready(function() {
 
                     $('.div-recipe-area').append(recipeDiv);
                 }
-            });
 
-        // Don't refresh the page!
+
+                //Checking to see if the browser supports the relevant storage API
+                localStorage.clear();
+                var storeCuisine = $('#cuisineInput');
+                var storeLocation = $('#locationInput');
+
+                //Not sure what the key ('whatever is in here') should be...?
+                localStorage.setItem('cuisine', storeCuisine);
+                localStorage.setItem('location', storeLocation);
+
+
+            });
         return false;
     });
 
