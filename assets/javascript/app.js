@@ -22,6 +22,8 @@ $(document).ready(function() {
             .done(function(response) {
                 console.log(".done: " + response);
 
+                $('.div-recipe-area').empty();
+
                 for (var i = 0; i < response.hits.length; i++) {
                     console.log(response.hits[i].recipe.label);
                     console.log(response.hits[i].recipe.image);
