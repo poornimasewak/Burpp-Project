@@ -1,1 +1,1 @@
-<?php include_once('Knight/index.html'); ?>
+<?php include_once('index.html'); ?>
