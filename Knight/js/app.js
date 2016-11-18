@@ -65,15 +65,6 @@ $(document).ready(function() {
                 }
 
 
-                //Checking to see if the browser supports the relevant storage API
-                localStorage.clear();
-                var storeCuisine = $('#cuisineInput');
-                var storeLocation = $('#locationInput');
-
-                //Not sure what the key ('whatever is in here') should be...?
-                localStorage.setItem('cuisine', storeCuisine);
-                localStorage.setItem('location', storeLocation);
-
 
             });
         return false;

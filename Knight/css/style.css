@@ -736,6 +736,12 @@ border: 2px solid #fff;
 	color: #fff;
 }
 
+#food-search {
+	max-width: 50%;
+	margin-left: 25%;
+}
+
+
 .validation {
     color: red;
     display:none;
