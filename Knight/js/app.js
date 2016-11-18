@@ -1,5 +1,20 @@
+
 $(document).ready(function() {
 
+ 
+
+	   // "https://www.gstatic.com/firebasejs/3.6.1/firebase.js"
+	   		//Need to add this to the HTML
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDGGznJOne1Hcc7r4s8q8DFqOsrOX78OiI",
+    authDomain: "burpp-project-d026b.firebaseapp.com",
+    databaseURL: "https://burpp-project-d026b.firebaseio.com",
+    storageBucket: "burpp-project-d026b.appspot.com",
+    messagingSenderId: "502802226183"
+  };
+  firebase.initializeApp(config);
     // Capture Button Click
     $("#btn-food").on("click", function() {
         // Grabbed value from text boxes
@@ -51,3 +66,4 @@ $(document).ready(function() {
     });
 
 });
+
