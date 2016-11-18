@@ -32,10 +32,13 @@ $(document).ready(function() {
 
                     var p = $('<h5>').text("Name: " + response.hits[i].recipe.label);
 
+                    var icon = $('<i class="fa fa-cutlery">');
+
                     var recipeImage = $('<img>');
                     recipeImage.attr('src', response.hits[i].recipe.image);
                     recipeImage.attr('float', 'left');
 
+                    recipeDiv.append(icon);
                     recipeDiv.append(p);
                     recipeDiv.append(recipeImage);
 
