@@ -11,7 +11,7 @@ $(document).ready(function() {
   firebase.initializeApp(config);
 
   var database = firebase.database();
-  
+
 
     // Capture Button Click
     $("#btn-food").on("click", function() {
@@ -73,11 +73,13 @@ $(document).ready(function() {
                 //Not sure what the key ('whatever is in here') should be...?
                 localStorage.setItem('cuisine', storeCuisine);
                 localStorage.setItem('location', storeLocation);
-
+                console.log(storeCuisine);
 
             });
         return false;
     });
+
+   
 
 });
 
