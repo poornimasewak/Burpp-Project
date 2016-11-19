@@ -42,7 +42,30 @@
 <body>
 
 <!-- Login Modal -->
-<div id="myModal" class="modal fade">
+
+
+<header class="header" id="header"><!--header-start-->
+	<div class="container">
+
+        <!-- <img src="img/Portfolio-pic6.jpg"> -->
+    	<figure class="logo animated fadeInDown delay-07s">
+        	<a href="#"><img src="img/logo.png" alt=""></a>	
+        </figure>	
+        <h1 class="animated fadeInDown delay-07s">BURPP</h1>
+        <ul class="we-create animated fadeInUp delay-1s">
+        	<li>We are a few Foodie people who would love to satisfy your food cravings.</li>
+        </ul>
+            <!-- Add Food Form-->
+                        <form>
+                            <div class="form-group">
+                                <!-- <label for="food-search"></label> -->
+                                <input class="form-control" id="food-search" type="text" placeholder="Search Food">
+                            </div>
+                            <button onClick="document.getElementById('service').scrollIntoView();" class="btn btn-default" id="btn-food" type="submit">Submit</button>
+                        </form>
+
+    </div>
+     <div id="myModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -63,27 +86,7 @@
             </div>
         </div>
     </div>
-
-<header class="header" id="header"><!--header-start-->
-	<div class="container">
-        <!-- <img src="img/Portfolio-pic6.jpg"> -->
-    	<figure class="logo animated fadeInDown delay-07s">
-        	<a href="#"><img src="img/logo.png" alt=""></a>	
-        </figure>	
-        <h1 class="animated fadeInDown delay-07s">BURPP</h1>
-        <ul class="we-create animated fadeInUp delay-1s">
-        	<li>We are a few Foodie people who would love to satisfy your food cravings.</li>
-        </ul>
-            <!-- Add Food Form-->
-                        <form>
-                            <div class="form-group">
-                                <!-- <label for="food-search"></label> -->
-                                <input class="form-control" id="food-search" type="text" placeholder="Search Food">
-                            </div>
-                            <button onClick="document.getElementById('service').scrollIntoView();" class="btn btn-default" id="btn-food" type="submit">Submit</button>
-                        </form>
-
-    </div>
+    
 </header><!--header-end-->
 
 <nav class="main-nav-outer" id="test"><!--main-nav-start-->
