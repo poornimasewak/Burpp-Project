@@ -19,6 +19,9 @@ var emailInput = '';
 
 //Create login button
 $('#login-btn').on('click', function(){
+
+    $("#myModal").modal('hide');
+
     nameInput = $('#nameI').val().trim();
     emailInput = $('#emailI').val().trim();
 
@@ -26,7 +29,7 @@ database.ref().push({
     nameInput: nameInput,
     emailInput: emailInput,
 });
-// return false;
+return false;
 });
 
 
