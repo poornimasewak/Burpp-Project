@@ -49,7 +49,7 @@ $(document).ready(function() {
 
                     var recipeDiv = $('<div class="recipe">');
 
-                    var p = $('<h5>').text("Name: " + response.hits[i].recipe.label);
+                    var p = $('<h5>').text(response.hits[i].recipe.label);
 
                     var icon = $('<i class="fa fa-cutlery">');
 
