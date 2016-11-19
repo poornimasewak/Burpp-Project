@@ -74,14 +74,17 @@
             </div>
             <div class="modal-body">
                 <p>Log In</p>
-                <form>
+                <form id="my-form">
                     <div class="form-group">
+                    <!-- Name Input -->
                         <input type="text" class="form-control" id="nameI" placeholder="Name">
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="emailI" placeholder="Email Address">
+                    <!-- Email Input -->
+                        <input type="email" form="my-form" class="form-control" id="emailI" placeholder="Email Address" name="email" required>
                     </div>
-                    <button type="submit" class="btn btn-primary" id="login-btn">Log In</button>
+                    <!-- Submit Button -->
+                    <input type="submit" class="btn btn-primary" id="login-btn" value="Login">
                 </form>
             </div>
         </div>
