@@ -1,6 +1,5 @@
 $(document).ready(function(){
         $("#myModal").modal('show');
-    });
 
    // Initialize Firebase
   var config = {
@@ -13,7 +12,23 @@ $(document).ready(function(){
   firebase.initializeApp(config);
 
   var database = firebase.database();
-  
+
+//Creating variables for login
+var nameInput = '';
+var emailInput = '';
+
+//Create login button
+$('#login-btn').on('click', function(){
+    nameInput = $('#nameI').val().trim();
+    emailInput = $('#emailI').val().trim();
+
+database.ref().push({
+    nameInput: nameInput,
+    emailInput: emailInput,
+});
+// return false;
+});
+
 
     // Capture Button Click
     $("#btn-food").on("click", function() {
@@ -71,4 +86,5 @@ $(document).ready(function(){
             });
         return false;
 
+});
 });
