@@ -1,17 +1,4 @@
-
 $(document).ready(function() {
-   // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDGGznJOne1Hcc7r4s8q8DFqOsrOX78OiI",
-    authDomain: "burpp-project-d026b.firebaseapp.com",
-    databaseURL: "https://burpp-project-d026b.firebaseio.com",
-    storageBucket: "burpp-project-d026b.appspot.com",
-    messagingSenderId: "502802226183"
-  };
-  firebase.initializeApp(config);
-
-  var database = firebase.database();
-
 
     // Capture Button Click
     $("#btn-food").on("click", function() {
@@ -28,58 +15,65 @@ $(document).ready(function() {
 
         var queryURL = crossoriginURL + edamamURL + search + keys;
 
-        var config = {
-            url: queryURL,
-            method: 'GET'
-        };
+        var config = { url: queryURL, method: 'GET' };
         console.log("url before query: " + queryURL);
 
-        $.ajax({
-                url: queryURL,
-                method: 'GET'
-            })
+        $.ajax({ url: queryURL, method: 'GET' })
             .done(function(response) {
                 console.log(".done: " + response);
 
                 $('.div-recipe-area').empty();
 
                 for (var i = 0; i < response.hits.length; i++) {
-                    console.log(response.hits[i].recipe.label);
-                    console.log(response.hits[i].recipe.image);
-
-                    var recipeDiv = $('<div class="recipe">');
-
-                    var p = $('<h5>').text("Name: " + response.hits[i].recipe.label);
-
-                    var icon = $('<i class="fa fa-cutlery">');
-
-                    var recipeImage = $('<img>');
-                    recipeImage.attr('src', response.hits[i].recipe.image);
-                    recipeImage.attr('float', 'left');
-
-                    recipeDiv.append(icon);
-                    recipeDiv.append(p);
-                    recipeDiv.append(recipeImage);
-
-                    $('.div-recipe-area').append(recipeDiv);
+                    makeRecipeDiv(response, i);
                 }
-
-
-                //Checking to see if the browser supports the relevant storage API
-                localStorage.clear();
-                var storeCuisine = $('#cuisineInput');
-                var storeLocation = $('#locationInput');
-
-                //Not sure what the key ('whatever is in here') should be...?
-                localStorage.setItem('cuisine', storeCuisine);
-                localStorage.setItem('location', storeLocation);
-                console.log(storeCuisine);
-
             });
+
+        // Don't refresh the page!
         return false;
     });
 
-   
+    function makeRecipeDiv(response, i) {
 
+        var divIndividualRecipe = $('<div class="panel panel-default div-recipe">');
+        // divIndividualRecipe is a panel that contains a panel-heading and a panel-body
+        var divHeading = $('<div class="panel-heading">');
+        var divRecipeBody = $('<div class="panel-body div-recipe-panel-body">');
+        // divRecipeBody contains an aside left and an aside right
+        var asideLeft = $('<aside class="aside-left-image">');
+        var asideRight = $('<aside class="aside-right-recipe-content">');
+
+        var recipe = response.hits[i].recipe;
+
+        var h = $('<h5>').text("Recipe: " + recipe.label);
+        h.addClass("h5-title");
+        divHeading.append(h);
+
+        var recipeImage = $('<img>');
+        recipeImage.addClass("img-food");
+        recipeImage.attr('src', recipe.image);
+        asideLeft.append(recipeImage);
+
+        var hingr = $('<h5>').text("Ingredients: ");
+        asideRight.append(hingr);
+
+        var ingredientList = $('<ol>');
+
+        for (var i = 0; i < recipe.ingredientLines.length; i++) {
+            var li = $('<li>').text(recipe.ingredientLines[i]);
+            ingredientList.append(li);
+        }
+
+        var originalURL = $("<a>").attr("href", recipe.url).attr("target", "_blank").text("Open Full recipe in new window.");
+
+        asideRight.append(ingredientList);
+        asideRight.append(originalURL);
+
+        divRecipeBody.append(asideLeft);
+        divRecipeBody.append(asideRight);
+
+        divIndividualRecipe.append(divHeading).append(divRecipeBody);
+
+        $(".div-recipe-area").append(divIndividualRecipe);
+    }
 });
-
