@@ -1,5 +1,7 @@
+$(document).ready(function(){
+        $("#myModal").modal('show');
+    });
 
-$(document).ready(function() {
    // Initialize Firebase
   var config = {
     apiKey: "AIzaSyDGGznJOne1Hcc7r4s8q8DFqOsrOX78OiI",
@@ -68,7 +70,5 @@ $(document).ready(function() {
 
             });
         return false;
-    });
 
 });
-
