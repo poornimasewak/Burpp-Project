@@ -1,13 +1,5 @@
 $(document).ready(function(){
         $('#myModal').modal('show');
-        // $('#my-form').validate({
-        //     rules: {
-        //         name: {
-        //             required: true
-
-        //         },
-        //     },
-        // });
 
    // Initialize Firebase
   var config = {
@@ -21,6 +13,7 @@ $(document).ready(function(){
 
   var database = firebase.database();
 
+
 //Creating variables for login
 var nameInput = '';
 var emailInput = '';
@@ -28,15 +21,18 @@ var emailInput = '';
 //Create login button
 $('#login-btn').on('click', function(){
 
-    $("#myModal").modal('hide');
 
-    nameInput = $('#nameI').val().trim();
-    emailInput = $('#emailI').val().trim();
+
+    nameInput = $('#name-i').val().trim();
+    emailInput = $('#email-i').val().trim();
 
 database.ref().push({
     nameInput: nameInput,
     emailInput: emailInput,
+
 });
+
+$("#myModal").modal('hide');
 return false;
 });
 
