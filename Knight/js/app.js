@@ -28,7 +28,7 @@ var emailInput = '';
 //Create login button
 $('#login-btn').on('click', function(){
 
-    // $("#myModal").modal('hide');
+    $("#myModal").modal('hide');
 
     nameInput = $('#nameI').val().trim();
     emailInput = $('#emailI').val().trim();
