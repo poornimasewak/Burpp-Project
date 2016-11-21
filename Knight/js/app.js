@@ -1,5 +1,6 @@
+$(document).ready(function(){
+        $('#myModal').modal('show');
 
-$(document).ready(function() {
    // Initialize Firebase
   var config = {
     apiKey: "AIzaSyDGGznJOne1Hcc7r4s8q8DFqOsrOX78OiI",
@@ -11,6 +12,26 @@ $(document).ready(function() {
   firebase.initializeApp(config);
 
   var database = firebase.database();
+
+
+//Creating variables for login
+var nameInput = '';
+var emailInput = '';
+
+//Create login button
+$('#login-btn').on('click', function(){
+
+    nameInput = $('#name-i').val().trim();
+    emailInput = $('#email-i').val().trim();
+
+database.ref().push({
+    nameInput: nameInput,
+    emailInput: emailInput,
+
+});
+$("#myModal").modal('hide');
+return false;
+});
 
 
     // Capture Button Click
@@ -49,7 +70,7 @@ $(document).ready(function() {
 
                     var recipeDiv = $('<div class="recipe">');
 
-                    var p = $('<h5>').text("Name: " + response.hits[i].recipe.label);
+                    var p = $('<h5>').text(response.hits[i].recipe.label);
 
                     var icon = $('<i class="fa fa-cutlery">');
 
@@ -64,22 +85,9 @@ $(document).ready(function() {
                     $('.div-recipe-area').append(recipeDiv);
                 }
 
-
-                //Checking to see if the browser supports the relevant storage API
-                localStorage.clear();
-                var storeCuisine = $('#cuisineInput');
-                var storeLocation = $('#locationInput');
-
-                //Not sure what the key ('whatever is in here') should be...?
-                localStorage.setItem('cuisine', storeCuisine);
-                localStorage.setItem('location', storeLocation);
-                console.log(storeCuisine);
-
             });
         return false;
-    });
 
-   
-
+});
 });
 
