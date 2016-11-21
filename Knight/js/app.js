@@ -1,37 +1,38 @@
-$(document).ready(function(){
-        $('#myModal').modal('show');
+$(document).ready(function() {
+    $('#myModal').modal('show');
 
-   // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDGGznJOne1Hcc7r4s8q8DFqOsrOX78OiI",
-    authDomain: "burpp-project-d026b.firebaseapp.com",
-    databaseURL: "https://burpp-project-d026b.firebaseio.com",
-    storageBucket: "burpp-project-d026b.appspot.com",
-    messagingSenderId: "502802226183"
-  };
-  firebase.initializeApp(config);
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDGGznJOne1Hcc7r4s8q8DFqOsrOX78OiI",
+        authDomain: "burpp-project-d026b.firebaseapp.com",
+        databaseURL: "https://burpp-project-d026b.firebaseio.com",
+        storageBucket: "burpp-project-d026b.appspot.com",
+        messagingSenderId: "502802226183"
+    };
+    firebase.initializeApp(config);
 
-  var database = firebase.database();
+    var database = firebase.database();
 
 
-//Creating variables for login
-var nameInput = '';
-var emailInput = '';
 
-//Create login button
-$('#login-btn').on('click', function(){
+    //Creating variables for login
+    var nameInput = '';
+    var emailInput = '';
 
-    nameInput = $('#name-i').val().trim();
-    emailInput = $('#email-i').val().trim();
+    //Create login button
+    $('#login-btn').on('click', function() {
 
-database.ref().push({
-    nameInput: nameInput,
-    emailInput: emailInput,
+        nameInput = $('#name-i').val().trim();
+        emailInput = $('#email-i').val().trim();
 
-});
-$("#myModal").modal('hide');
-return false;
-});
+        database.ref().push({
+            nameInput: nameInput,
+            emailInput: emailInput,
+
+        });
+        $("#myModal").modal('hide');
+        return false;
+    });
 
 
     // Capture Button Click
@@ -86,9 +87,10 @@ return false;
                 }
 
 
-
             });
         return false;
 
-});
+
+
+    });
 });
