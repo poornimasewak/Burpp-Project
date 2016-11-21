@@ -1,22 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Burpp-Project</title>
+    <title>Homework 7</title>
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Moment -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <!-- My Stuff -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script src="Knight/js/app.js"></script>
+    <script src="assets/javascript/app.js"></script>
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
     <!-- OAuth -->
+    <script type="text/javascript" src="assets/libs/oauth.js"></script>
+    <script type="text/javascript" src="assets/libs/sha.js"></script>
     <!-- Make page resposive -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -26,7 +28,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="jumbotron">
-                <h1 class="text-center">Burpp-Project</h1>
+                <h1 class="text-center">Food</h1>
             </div>
         </div>
         <div class="row">
@@ -36,11 +38,12 @@
                         <h3 class="panel-title">Food Test</h3>
                     </div>
                     <div class="panel-body">
-                        <!-- Add Food Form-->
                         <form>
                             <div class="form-group">
                                 <label for="food-search">Food Search:</label>
                                 <input class="form-control" id="food-search" type="text">
+                                <label for="location">Location: City or Zip Code:</label>
+                                <input class="form-control" id="location" type="text">
                             </div>
                             <button class="btn btn-default" id="btn-food" type="submit">Submit</button>
                         </form>
@@ -48,20 +51,35 @@
                 </div>
             </div>
         </div>
-        <!-- Add Train Panel-->
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Results</h3>
+                        <h3 class="panel-title">Yelp Results</h3>
+                        <p id="query-response"></p>
                     </div>
-                    <div class="panel-body div-recipe-area">
+                    <div class="panel-body div-yelp">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+<!--     <div class="panel-body div-yelp">
+        <div class="panel panel-default div-yelp-business">
+            <div class="panel-heading div-yelp-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse1" class="collapsed">
+                        Sapori Napoletani
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel-body div-yelp-body">
+                    Sapori Napoletani
+                </div>
+            </div>
+        </div>
+    </div> -->
 </body>
 
 </html>
-
