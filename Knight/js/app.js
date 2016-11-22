@@ -36,7 +36,6 @@ $('#login-btn').on('click', function() {
     return false;
 });
 
-
 // Capture Button Click
 $("#btn-food").on("click", function() {
     // Grabbed value from text boxes
@@ -77,6 +76,8 @@ $("#btn-food").on("click", function() {
 });
 
 function makeRecipeDiv(response, i) {
+
+var p = $('<h5>').text(response.hits[i].recipe.label);
 
 
     var divIndividualRecipe = $('<div class="panel panel-default div-recipe">');
@@ -123,6 +124,10 @@ function makeRecipeDiv(response, i) {
     divIndividualRecipe.append(divHeading).append(divRecipeBody);
 
     $(".div-recipe-area").append(divIndividualRecipe);
+    //creating button to save recipes
+    // var saveRecipeButton = $('<button>').text("Save Recipe");
+    // asideRight.append(saveRecipeButton);
+
 }
 });
 
