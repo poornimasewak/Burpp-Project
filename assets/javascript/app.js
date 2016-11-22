@@ -81,10 +81,13 @@ $(document).ready(function() {
     // the (javascript JSON object).businesses[i]. See the html below this function 
     // to see the structure of the div that will be created
     function makeYelpDiv(jsJsonObj) {
+        $(".div-yelp").empty();
+
         // For each business returned from the Yelp query
         for (var i = 0; i < jsJsonObj.businesses.length; i++) {
             // Get the individual business data
             var business = jsJsonObj.businesses[i];
+            var panelId="collapse"+i.toString();
 
             // The primary div with a heading and collapsible panel
             var divYelpBusiness = $('<div class="panel panel-default div-yelp-business">');
@@ -92,19 +95,28 @@ $(document).ready(function() {
             // 1.) create div-yelp-heading
             var divYelpHeading = $('<div class="panel-heading div-yelp-heading">');
             var h4 = $('<h4 class="panel-title">');
-            var a = $('<a data-toggle="collapse" href="#collapse1">');
+            var aStr = '<a data-toggle="collapse" href="#'+ panelId +'">';
+            var a = $(aStr);
+            //var a = $('<a data-toggle="collapse" href="#collapse1">');
             a.text(business.name);
             var rating = $('<img >');
             rating.attr("src", business.rating_img_url);
+            var img_restaurant= $('<img >');
+            img_restaurant.attr("src", business.image_url);
 
             h4.append(a);
             divYelpHeading.append(h4);
             divYelpHeading.append(rating);
+            divYelpHeading.append('<br>');
+
+            divYelpHeading.append(img_restaurant);
             divYelpBusiness.append(divYelpHeading);
             // 1.) div-yelp-heading complete and appended to div-yelp-business
 
             // 2.) create div collapse
-            var divCollapse = $('<div id="collapse1" class="panel-collapse collapse">');
+            var divStr = '<div id="'+ panelId + '" class="panel-collapse collapse">';
+            var divCollapse = $(divStr);
+            //var divCollapse = $('<div id="collapse1" class="panel-collapse collapse">');
             var divYelpBody = $('<div class="panel-body div-yelp-body">');
             // BEGIN DISPLAYED RESTAURANT DATA
             //divYelpBody.append(business.name);
