@@ -16,7 +16,6 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 
-
 //Creating variables for login
 var nameInput = '';
 var emailInput = '';
@@ -24,8 +23,8 @@ var emailInput = '';
 //Create login button
 $('#login-btn').on('click', function() {
 
-    nameInput = $('#name-i').val().trim();
-    emailInput = $('#email-i').val().trim();
+    nameInput = $('#namei').val().trim();
+    emailInput = $('#emaili').val().trim();
 
     database.ref().push({
         nameInput: nameInput,
@@ -35,6 +34,7 @@ $('#login-btn').on('click', function() {
     $("#myModal").modal('hide');
     return false;
 });
+
 
 // Capture Button Click
 $("#btn-food").on("click", function() {
@@ -130,6 +130,8 @@ var p = $('<h5>').text(response.hits[i].recipe.label);
 
 }
 });
+
+
 
 
 
