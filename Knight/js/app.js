@@ -124,6 +124,9 @@ var p = $('<h5>').text(response.hits[i].recipe.label);
     divIndividualRecipe.append(divHeading).append(divRecipeBody);
 
     $(".div-recipe-area").append(divIndividualRecipe);
+    //creating button to save recipes
+    var saveRecipeButton = $('<button>').text("Save Recipe");
+    asideRight.append(saveRecipeButton);
 
 }
 });
