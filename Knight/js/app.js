@@ -1,5 +1,5 @@
 $(document).ready(function(){
-        $("#myModal").modal('show');
+        $('#myModal').modal('show');
 
    // Initialize Firebase
   var config = {
@@ -20,6 +20,7 @@ var emailInput = '';
 //Create login button
 $('#login-btn').on('click', function(){
 
+
     nameInput = $('#namei').val().trim();
     emailInput = $('#emaili').val().trim();
     $("#myModal").modal('hide'); //Hiding modal
@@ -28,12 +29,27 @@ database.ref().push({
     nameInput: nameInput,
     emailInput: emailInput,
 });
+
 //Changing the HTML to display login name
 $('.top-right').html('Welcome,' + ' ' + nameInput);
 
 return false;
 });
 
+// if ($('#namei').text() === '')
+//     $('#myModal').modal('show');
+// else {
+//     nameInput = $('#namei').val().trim();
+//     emailInput = $('#emaili').val().trim();
+//     $('.top-right').html('Welcome,' + ' ' + nameInput);
+//     $('#myModal').modal('hide');
+//     return false;
+// }
+
+// database.ref().push({
+//     nameInput: nameInput,
+//     emailInput: emailInput,
+// });
 
 // Capture Button Click
 $("#btn-food").on("click", function() {
@@ -129,7 +145,6 @@ var p = $('<h5>').text(response.hits[i].recipe.label);
 
 }
 });
-
 
 
 
