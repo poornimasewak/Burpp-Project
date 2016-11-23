@@ -26,6 +26,8 @@
 <script type="text/javascript" src="js/jquery.isotope.js"></script>
 <script type="text/javascript" src="js/wow.js"></script>
 <script type="text/javascript" src="js/classie.js"></script>
+<script type="text/javascript" src="js/libs/oauth.js"></script>
+<script type="text/javascript" src="js/libs/sha.js"></script>
 <!-- <script src="contactform/contactform.js"></script> -->
 <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
@@ -60,6 +62,7 @@
                             <div class="form-group">
                                 <!-- <label for="food-search"></label> -->
                                 <input class="form-control" id="food-search" type="text" placeholder="Search Food">
+                                <input class="form-control" id="location" type="text" placeholder="city or zipcode">
                             </div>
                             <button onClick="document.getElementById('service').scrollIntoView();" class="btn btn-default" id="btn-food" type="submit">Submit</button>
                         </form>
@@ -235,7 +238,11 @@
         
 	</div>
     <div class="portfolioContainer wow fadeInUp delay-04s">
-            	<div class=" Portfolio-box printdesign">
+
+      <p id="query-response"></p>
+      <div class="panel-body div-yelp">
+                    </div>
+            	<!-- <div class=" Portfolio-box printdesign">
                 	<a href="#"><img src="img/Portfolio-pic1.jpg" alt=""></a>	
                 	<h3>Foto Album</h3>
                     <p>Print Design</p>
@@ -264,7 +271,7 @@
                 	<a href="#"><img src="img/Portfolio-pic6.jpg" alt=""></a>	
                 	<h3>Windmills</h3>
                     <p>Photography</p>
-                </div>
+                </div> -->
     </div>
 </section><!--main-section-end-->
 
