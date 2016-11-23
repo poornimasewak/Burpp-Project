@@ -1,38 +1,37 @@
-$(document).ready(function() {
+$(document).ready(function(){
+        $("#myModal").modal('show');
 
-// displaying login modal
-$('#myModal').modal('show');
-
-// Initialize Firebase
-var config = {
+   // Initialize Firebase
+  var config = {
     apiKey: "AIzaSyDGGznJOne1Hcc7r4s8q8DFqOsrOX78OiI",
     authDomain: "burpp-project-d026b.firebaseapp.com",
     databaseURL: "https://burpp-project-d026b.firebaseio.com",
     storageBucket: "burpp-project-d026b.appspot.com",
     messagingSenderId: "502802226183"
-};
-firebase.initializeApp(config);
+  };
+  firebase.initializeApp(config);
 
-var database = firebase.database();
-
+  var database = firebase.database();
 
 //Creating variables for login
 var nameInput = '';
 var emailInput = '';
 
 //Create login button
-$('#login-btn').on('click', function() {
+$('#login-btn').on('click', function(){
 
     nameInput = $('#namei').val().trim();
     emailInput = $('#emaili').val().trim();
+    $("#myModal").modal('hide'); //Hiding modal...which won't hide
 
-    database.ref().push({
-        nameInput: nameInput,
-        emailInput: emailInput,
+database.ref().push({
+    nameInput: nameInput,
+    emailInput: emailInput,
+});
+//Changing the HTML to display login name
+$('.top-right').html('Welcome,' + ' ' + nameInput);
 
-    });
-    $("#myModal").modal('hide');
-    return false;
+return false;
 });
 
 
