@@ -17,23 +17,23 @@ $(document).ready(function(){
 var nameInput = '';
 var emailInput = '';
 
-//Create login button
 $('#login-btn').on('click', function(){
 
+    if ($('#namei').get(0).checkValidity()){
+        nameInput = $('#namei').val().trim();
+        emailInput = $('#emaili').val().trim();
+        $("#myModal").modal('hide'); //Hiding modal
 
-    nameInput = $('#namei').val().trim();
-    emailInput = $('#emaili').val().trim();
-    $("#myModal").modal('hide'); //Hiding modal
+        database.ref().push({
+            nameInput: nameInput,
+            emailInput: emailInput,
+        });
 
-database.ref().push({
-    nameInput: nameInput,
-    emailInput: emailInput,
-});
+        //Changing the HTML to display login name
+        $('.top-right').html('Welcome,' + ' ' + nameInput);
 
-//Changing the HTML to display login name
-$('.top-right').html('Welcome,' + ' ' + nameInput);
-
-return false;
+        return false;
+    }
 });
 
 // if ($('#namei').text() === '')
