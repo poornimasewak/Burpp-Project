@@ -22,7 +22,7 @@ $('#login-btn').on('click', function(){
 
     nameInput = $('#namei').val().trim();
     emailInput = $('#emaili').val().trim();
-    $("#myModal").modal('hide'); //Hiding modal...which won't hide
+    $("#myModal").modal('hide'); //Hiding modal
 
 database.ref().push({
     nameInput: nameInput,
