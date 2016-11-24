@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+* {}
+/*The Food Test heading*/
+.h3-title {
+	text-align: centered;
+	font-weight: bold;
+}
+/*div-recipe-area has (.div-recipe)
+  appended to it*/
+.div-recipe-area {
+    margin-bottom: .2em;
+    margin-right: .2em;
+}
+/*Title in the dynamic panel-heading*/
+.h5-title {
+	text-align: centered;
+	font-weight: bold;
+}
+/*.div-recipe has two asides (.aside-left-image) and 
+  (.aside-right-recipe-content)*/
+.div-recipe {
+	margin: 0 auto;
+	display: inline-block;
+	width:100%;
+}
+.div-recipe-panel-body {
+	overflow: auto;
+}
+.aside-left-image {
+	float: left;
+}
+.img-food {
+	max-width: 90%;
+	float: left;
+    height: auto;
+}
+.aside-right-recipe-content {
+	float: left;
+	max-width: 50%;
+}
+.div-yelp {
+}

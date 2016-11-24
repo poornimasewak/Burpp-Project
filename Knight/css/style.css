@@ -737,7 +737,7 @@ border: 2px solid #fff;
 	color: #fff;
 }
 
-#food-search {
+#food-search, #location {
 	max-width: 25%;
 	margin-left: 37%;
 }

@@ -14,6 +14,8 @@
     <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="css/responsive.css" rel="stylesheet" type="text/css">
     <link href="css/animate.css" rel="stylesheet" type="text/css">
+    <link href="css/edamam_yelp.css" rel="stylesheet" type="text/css">
+    <!--  mmeder -->
     <!--[if IE]><style type="text/css">.pie {behavior:url(PIE.htc);}</style><![endif]-->
     <script type="text/javascript" src="js/jquery.1.8.3.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -25,6 +27,11 @@
     <!-- <script src="contactform/contactform.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
+    <!-- OAuth -->
+    <script type="text/javascript" src="js/oauth.js"></script>
+    <!--  mmeder -->
+    <script type="text/javascript" src="js/sha.js"></script>
+    <!--  mmeder -->
     <!-- =======================================================
             Theme Name: Knight
             Theme URL: https://bootstrapmade.com/knight-free-bootstrap-theme/
@@ -50,6 +57,7 @@
                 <div class="form-group">
                     <!-- <label for="food-search"></label> -->
                     <input class="form-control" id="food-search" type="text" placeholder="Search Food">
+                    <input class="form-control" id="location" type="text" placeholder="City or Zip Code:">
                 </div>
                 <button onClick="document.getElementById('service').scrollIntoView();" class="btn btn-default" id="btn-food" type="submit">Submit</button>
             </form>
@@ -106,8 +114,18 @@
                         <div class="service-list-col1">
                             <!-- <i class="fa fa-cutlery"></i> -->
                         </div>
-                        <div class="service-list-col2 div-recipe-area">
-                        </div>
+                        <!--                         <div class="service-list-col2 div-recipe-area">
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="panel panel-default div-recipe-area">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-default div-yelp">
                     </div>
                 </div>
             </div>
