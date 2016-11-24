@@ -190,7 +190,7 @@ function yelpQuery(food, loc, num) {
                 'cache': true
             })
             .done(function(data, textStatus, jqXHR) {
-                console.log('success[' + data + '], status[' + textStatus + '], jqXHR[' + JSON.stringify(jqXHR) + ']');
+               cb(data); // console.log('success[' + data + '], status[' + textStatus + '], jqXHR[' + JSON.stringify(jqXHR) + ']');
             })
             .fail(function(jqXHR, textStatus, errorThrown) {
                 console.log('error[' + errorThrown + '], status[' + textStatus + '], jqXHR[' + JSON.stringify(jqXHR) + ']');
