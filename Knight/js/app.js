@@ -15,8 +15,6 @@ $(document).ready(function() {
 
     var database = firebase.database();
 
-
-
     //Creating variables for login
     var nameInput = '';
     var emailInput = '';
@@ -36,17 +34,66 @@ $(document).ready(function() {
         return false;
     });
 
-
-    // Capture Button Click
+    // Food and Location Button Click
     $("#btn-food").on("click", function() {
         // Grabbed values from text boxes
         var fname = $("#food-search").val().trim();
         var loc = $("#location").val().trim();
 
-        yelpQuery(fname, loc, "10");
-        edamamQuery(fname);
+        // UNCOMMENT THE 5 LINES BELOW TO QUERY YELP AND EDAMAM
+        //if(fname === '' || loc === '') {
+        //    alert("Food and Location are both required");
+        //}
+        // yelpQuery(fname, loc, "10");
+        // edamamQuery(fname);        
+
+        // FOR DEVELOPMENT - Use JSON file instead of internet query
+        fakeYelpQuery(fname, loc, "10");
+        fakeEdamamQuery(fname);
+
         return false;
     });
+
+    // Save Recipe Button Click
+    $(document).on("click", ".btn-save-recipe", function() {
+        // Grabbed values from text boxes
+        var t = $(this);
+        var recipe = $(this).data("recipe");
+
+        return false;
+    });
+
+    // Dut to the recipe site edamam being down most of Thanksgiving day, 
+    // I saved an edamam query and a yelp query as JSON strings and read
+    // them to allow me to continue to develop without depending on these
+    // sites responding. So I added 'fake' functions to simulate the 
+    // responses
+    function fakeEdamamQuery(fname) {
+        var response = "";
+        try {
+            response = JSON.parse(edamam_str);
+        } catch (err) {
+            console.log(err.message);
+            return;
+        }
+
+        $('.div-recipe-area').empty();
+        makeRecipeDivHeading();
+        for (var i = 0; i < response.hits.length; i++) {
+            makeRecipeDiv(response, i);
+        }
+    }
+
+    function fakeYelpQuery(food, loc, num) {
+        var response = "";
+        try {
+            response = JSON.parse(yelp_str);
+        } catch (err) {
+            console.log(err.message);
+            return;
+        }
+        makeYelpDiv(response);
+    }
 
     function edamamQuery(fname) {
         // The following 4 variables are in the order they need to be 
@@ -58,10 +105,16 @@ $(document).ready(function() {
 
         var queryURL = crossoriginURL + edamamURL + search + keys;
 
-        var config = { url: queryURL, method: 'GET' };
+        var config = {
+            url: queryURL,
+            method: 'GET'
+        };
         console.log("url before query: " + queryURL);
 
-        $.ajax({ url: queryURL, method: 'GET' })
+        $.ajax({
+                url: queryURL,
+                method: 'GET'
+            })
             .done(function(response) {
                 console.log(".done: " + response);
 
@@ -74,6 +127,8 @@ $(document).ready(function() {
     }
 
     function makeRecipeDivHeading() {
+        // Empty out the recipes array
+        recipes = [];
         var divRecipeHeading = $('<div class="panel-heading">');
         divRecipeHeading.html('<h3 class="panel-title">Edamam Recipes</h3>');
         $(".div-recipe-area").append(divRecipeHeading);
@@ -108,12 +163,20 @@ $(document).ready(function() {
         for (var i = 0; i < recipe.ingredientLines.length; i++) {
             var li = $('<li>').text(recipe.ingredientLines[i]);
             ingredientList.append(li);
+            //recipes.push(recipe.url);
         }
 
         var originalURL = $("<a>").attr("href", recipe.url).attr("target", "_blank").text("Open Full recipe in new window.");
 
+        //btnId = 'id-save-recipe' + i.toString();
+        //btnSaveRecipe = $('<button class="btn btn-default btn-save-recipe" id="' + btnId + '" type="submit">Save Recipe</button>');
+        btnSaveRecipe = $('<button class="btn btn-default btn-save-recipe" type="submit">Save Recipe</button>');
+        btnSaveRecipe.attr("data-recipe", recipe.url);
+
         asideRight.append(ingredientList);
         asideRight.append(originalURL);
+        asideRight.append('<br><br>');
+        asideRight.append(btnSaveRecipe);
 
         divRecipeBody.append(asideLeft);
         divRecipeBody.append(asideRight);
@@ -196,6 +259,7 @@ $(document).ready(function() {
     // the (javascript JSON object).businesses[i]. See the html below this function 
     // to see the structure of the div that will be created
     function makeYelpDiv(jsJsonObj) {
+        var str = JSON.stringify(jsJsonObj);
         $('.div-yelp').empty();
         makeYelpDivHeading();
         // For each business returned from the Yelp query
@@ -265,7 +329,9 @@ $(document).ready(function() {
         if (regexObj.test(phonenum)) {
             var parts = phonenum.match(regexObj);
             var phone = "";
-            if (parts[1]) { phone += "+1 (" + parts[1] + ") "; }
+            if (parts[1]) {
+                phone += "+1 (" + parts[1] + ") ";
+            }
             phone += parts[2] + "-" + parts[3];
             return phone;
         } else {
