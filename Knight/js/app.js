@@ -16,24 +16,28 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 
-
 //Creating variables for login
 var nameInput = '';
 var emailInput = '';
 
 //Create login button
-$('#login-btn').on('click', function() {
+$('#login-btn').on('click', function(){
 
-    nameInput = $('#name-i').val().trim();
-    emailInput = $('#email-i').val().trim();
+    if ($('#namei').get(0).checkValidity()){
+        nameInput = $('#namei').val().trim();
+        emailInput = $('#emaili').val().trim();
+        $("#myModal").modal('hide'); //Hiding modal
 
-    database.ref().push({
-        nameInput: nameInput,
-        emailInput: emailInput,
+        database.ref().push({
+            nameInput: nameInput,
+            emailInput: emailInput,
+        });
 
-    });
-    $("#myModal").modal('hide');
-    return false;
+        //Changing the HTML to display login name
+        $('.top-right').html('Welcome,' + ' ' + nameInput);
+
+        return false;
+    }
 });
 
 // Capture Button Click
