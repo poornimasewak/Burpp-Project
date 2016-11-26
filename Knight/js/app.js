@@ -272,6 +272,12 @@ function yelpQuery(food, loc, num) {
             reviewR: reviewR,
             reviewHere: reviewHere,
         });
+
+        //Displaying the review on the review page
+        $('.user-review').html(reviewHere);
+        $('.user-restaurant').html(reviewR);
+        $('.user-name').html(reviewName);
+
         return false;
     });
 
