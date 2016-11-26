@@ -748,7 +748,11 @@ border: 2px solid #fff;
 	max-width: 25%;
 	margin-left: 37%;
 }
-
+ 
+#location {
+	max-width: 25%;
+	margin-left: 37%;
+}
 
 .validation {
     color: red;
