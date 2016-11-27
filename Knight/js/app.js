@@ -1,38 +1,39 @@
 $(document).ready(function() {
+    // An 2 dimentional array of the firebase recipes for user if they are 
+    // logged in. 
+    // firebase[i][0] = recipe name
+    // firebase[i][0] = recipe link
+    var firebaseRecipes = [];
 
-    // displaying login modal
-    $('#myModal').modal('show');
+    //Creating variables for login
+    var user = "";
+    var email = "";
 
     // Initialize Firebase
+    // var config = {
+    //     apiKey: "AIzaSyDGGznJOne1Hcc7r4s8q8DFqOsrOX78OiI",
+    //     authDomain: "burpp-project-d026b.firebaseapp.com",
+    //     databaseURL: "https://burpp-project-d026b.firebaseio.com",
+    //     storageBucket: "burpp-project-d026b.appspot.com",
+    //     messagingSenderId: "502802226183"
+    // };
+    // firebase.initializeApp(config);
+
+    // Mikes database for development
     var config = {
-        apiKey: "AIzaSyDGGznJOne1Hcc7r4s8q8DFqOsrOX78OiI",
-        authDomain: "burpp-project-d026b.firebaseapp.com",
-        databaseURL: "https://burpp-project-d026b.firebaseio.com",
-        storageBucket: "burpp-project-d026b.appspot.com",
-        messagingSenderId: "502802226183"
+        apiKey: "AIzaSyDBkWZlIkEEPy051GZpeWiividhJDMSNrw",
+        authDomain: "child-9eadc.firebaseapp.com",
+        databaseURL: "https://child-9eadc.firebaseio.com",
+        storageBucket: "child-9eadc.appspot.com",
+        messagingSenderId: "264082459609"
     };
     firebase.initializeApp(config);
 
-    var database = firebase.database();
+    var dataRef = null;
 
-    //Creating variables for login
-    var nameInput = '';
-    var emailInput = '';
 
-    //Create login button
-    $('#login-btn').on('click', function() {
-
-        nameInput = $('#name-i').val().trim();
-        emailInput = $('#email-i').val().trim();
-
-        database.ref().push({
-            nameInput: nameInput,
-            emailInput: emailInput,
-
-        });
-        $("#myModal").modal('hide');
-        return false;
-    });
+        // displaying login modal
+    $('#myModal').modal('show');
 
     // Food and Location Button Click
     $("#btn-food").on("click", function() {
@@ -41,58 +42,139 @@ $(document).ready(function() {
         var loc = $("#location").val().trim();
 
         // UNCOMMENT THE 5 LINES BELOW TO QUERY YELP AND EDAMAM
-        //if(fname === '' || loc === '') {
-        //    alert("Food and Location are both required");
-        //}
-        // yelpQuery(fname, loc, "10");
-        // edamamQuery(fname);        
+        if(fname === '' || loc === '') {
+           alert("Food and Location are both required");
+        }
+        yelpQuery(fname, loc, "10");
+        edamamQuery(fname);        
 
         // FOR DEVELOPMENT - Use JSON file instead of internet query
-        fakeYelpQuery(fname, loc, "10");
-        fakeEdamamQuery(fname);
+        // If you cannot connect to the edamam and yelp api, uncomment these
+        // below
+        //fakeYelpQuery(fname, loc, "10");
+        //fakeEdamamQuery(fname);
 
         return false;
     });
 
     // Save Recipe Button Click
     $(document).on("click", ".btn-save-recipe", function() {
+        // if the user is logged in we need to save the recipe in firebase
         // Grabbed values from text boxes
         var t = $(this);
-        var recipe = $(this).data("recipe");
+        var url = $(this).data("recipe-link");
+        var recipeName = $(this).data("recipe-name");
 
+        if (recipeIsInFirebase(recipeName) === false) {
+            addRecipe(recipeName, url)
+                // Update the firebaseRecipes array from the database
+            getFirebaseRecipes();
+        } else {
+            alert("Recipe has been previously saved in database.");
+        }
         return false;
     });
 
-    // Dut to the recipe site edamam being down most of Thanksgiving day, 
-    // I saved an edamam query and a yelp query as JSON strings and read
-    // them to allow me to continue to develop without depending on these
-    // sites responding. So I added 'fake' functions to simulate the 
-    // responses
-    function fakeEdamamQuery(fname) {
-        var response = "";
-        try {
-            response = JSON.parse(edamam_str);
-        } catch (err) {
-            console.log(err.message);
-            return;
-        }
+    // Capture Log In Button Click
+    $("#login-btn").on("click", function() {
+        // open Database
+        dataRef = firebase.database();
+        user = $("#name-i").val().trim();
+        email = $("#email-i").val().trim();
+        firebase.auth().signInWithEmailAndPassword(email, user)
+            .catch(function(error) {
+                alert(error.message + "\nFirebase error.code: " + error.code);
+                console.log(error);
+            });
+        console.log('$("#login-btn").on("click", function() ');
+        // Don't refresh the page!
+        return false;
+    });
+    // Capture Log Out Button Click
+    $("#logout-btn").on("click", function() {
+        firebase.auth().signOut();
+        dataRef.goOffline();
+        dataRef = null;
+        // userLoggedIn = false; set in auth().onAuthStateChanged
+        console.log('$("#logout-btn").on("click", function() ');
+        // Don't refresh the page!
+        return false;
+    });
 
-        $('.div-recipe-area').empty();
-        makeRecipeDivHeading();
-        for (var i = 0; i < response.hits.length; i++) {
-            makeRecipeDiv(response, i);
+    // Capture New User Button Click
+    $("#new-user-btn").on("click", function() {
+        // open Database
+        dataRef = firebase.database();
+        user = $("#name-i").val().trim();
+        email = $("#email-i").val().trim();
+        firebase.auth().createUserWithEmailAndPassword(email, user)
+            .catch(function(error) {
+                alert(error.message + "\nFirebase error.code: " + error.code);
+                console.log(error);
+            });
+        console.log('$("#new-user-btn").on("click", function() ');
+        // Don't refresh the page!
+        return false;
+    });
+
+    // Capture Login,logout, and new user Events
+    firebase.auth().onAuthStateChanged(function(user_obj) {
+        if (user_obj) {
+            // Log In
+            if (dataRef) {
+                $("#myModal").modal('hide');
+            }
+        } else {
         }
+        console.log('firebase.auth().onAuthStateChanged(function(user_obj) ');
+        // Don't refresh the page!
+        return false;
+    });
+    // If the recipe name is already in the firebase database, return true
+    // If it is not, return false 
+    function recipeIsInFirebase(recipeName) {
+        for (var i = 0; i < firebaseRecipes.length; i++) {
+            if (recipeName === firebaseRecipes[i][0]) {
+                return true;
+            }
+        }
+        return false;
+    }
+    // Clear the firebaseRecipes array and go to firebase and fill the
+    // firebaseRecipes with the recipes stored in firebase
+    function getFirebaseRecipes() {
+        firebaseRecipes = [];
+        dataRef.ref().on("value", function(snapshot) {
+            console.log('value', snapshot.val());
+
+            var query = firebase.database().ref("user/" + user).orderByKey();
+            // For each recipe
+            query.once("value").then(function(snapshot) {
+                snapshot.forEach(function(childSnapshot) {
+                    // var key = childSnapshot.key;
+                    var childData = childSnapshot.val();
+                    firebaseRecipes.push([childData.recipe, childData.url]);
+                });
+            });
+        }, function(errorObject) {
+            console.log("The firebase read failed: " + errorObject.code);
+        });
+        console.log('("#get-data").on("click", function() ');
+        // Don't refresh the page!
+        return false;
     }
 
-    function fakeYelpQuery(food, loc, num) {
-        var response = "";
-        try {
-            response = JSON.parse(yelp_str);
-        } catch (err) {
-            console.log(err.message);
-            return;
-        }
-        makeYelpDiv(response);
+    function addRecipe(recipe, url) {
+        // Code for the push
+        var path = "user/" + user;
+        dataRef.ref().child(path).push({
+            recipe: recipe,
+            url: url,
+        });
+        console.log('("#add-data").on("click", function() ');
+
+        // Don't refresh the page!
+        return false;
     }
 
     function edamamQuery(fname) {
@@ -127,8 +209,6 @@ $(document).ready(function() {
     }
 
     function makeRecipeDivHeading() {
-        // Empty out the recipes array
-        recipes = [];
         var divRecipeHeading = $('<div class="panel-heading">');
         divRecipeHeading.html('<h3 class="panel-title">Edamam Recipes</h3>');
         $(".div-recipe-area").append(divRecipeHeading);
@@ -171,7 +251,8 @@ $(document).ready(function() {
         //btnId = 'id-save-recipe' + i.toString();
         //btnSaveRecipe = $('<button class="btn btn-default btn-save-recipe" id="' + btnId + '" type="submit">Save Recipe</button>');
         btnSaveRecipe = $('<button class="btn btn-default btn-save-recipe" type="submit">Save Recipe</button>');
-        btnSaveRecipe.attr("data-recipe", recipe.url);
+        btnSaveRecipe.attr("data-recipe-link", recipe.url);
+        btnSaveRecipe.attr("data-recipe-name", recipe.label);
 
         asideRight.append(ingredientList);
         asideRight.append(originalURL);
@@ -339,5 +420,35 @@ $(document).ready(function() {
             return phonenum;
         }
     }
+    // Dut to the recipe site edamam being down most of Thanksgiving day, 
+    // I saved an edamam query and a yelp query as JSON strings and read
+    // them to allow me to continue to develop without depending on these
+    // sites responding. So I added 'fake' functions to simulate the 
+    // responses
+    function fakeEdamamQuery(fname) {
+        var response = "";
+        try {
+            response = JSON.parse(edamam_str);
+        } catch (err) {
+            console.log(err.message);
+            return;
+        }
 
+        $('.div-recipe-area').empty();
+        makeRecipeDivHeading();
+        for (var i = 0; i < response.hits.length; i++) {
+            makeRecipeDiv(response, i);
+        }
+    }
+
+    function fakeYelpQuery(food, loc, num) {
+        var response = "";
+        try {
+            response = JSON.parse(yelp_str);
+        } catch (err) {
+            console.log(err.message);
+            return;
+        }
+        makeYelpDiv(response);
+    }
 });
