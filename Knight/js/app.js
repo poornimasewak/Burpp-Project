@@ -1,8 +1,13 @@
 $(document).ready(function(){
         $('#myModal').modal('show');
 
-   // Initialize Firebase
-  var config = {
+
+//Displaying login modal
+$('#myModal').modal('show');
+
+//Initialize Firebase
+var config = {
+
     apiKey: "AIzaSyDGGznJOne1Hcc7r4s8q8DFqOsrOX78OiI",
     authDomain: "burpp-project-d026b.firebaseapp.com",
     databaseURL: "https://burpp-project-d026b.firebaseio.com",
@@ -11,11 +16,16 @@ $(document).ready(function(){
   };
   firebase.initializeApp(config);
 
+
   var database = firebase.database();
+
 
 //Creating variables for login
 var nameInput = '';
 var emailInput = '';
+
+
+//Create login button
 
 $('#login-btn').on('click', function(){
 
@@ -268,6 +278,31 @@ function yelpQuery(food, loc, num) {
         }
     }
 
+    //Review Section Firebase
+    var reviewName = '';
+    var reviewR = '';
+    var reviewHere = '';
+
+    $('#review-btn').on('click', function(){
+        reviewName = $('#your-name').val().trim();
+        reviewR = $('#restaurant-identify').val().trim();
+        reviewHere = $('#write-review').val().trim();
+
+        database.ref().push({
+            reviewName: reviewName,
+            reviewR: reviewR,
+            reviewHere: reviewHere,
+        });
+
+        //Displaying the review on the review page
+        $('.user-review').html(reviewHere);
+        $('.user-restaurant').html(reviewR);
+        $('.user-name').html(reviewName);
+
+        return false;
+    });
+
+
     function formatPhone(phonenum) {
         var regexObj = /^(?:\+?1[-. ]?)?(?:\(?([0-9]{3})\)?[-. ]?)?([0-9]{3})[-. ]?([0-9]{4})$/;
         if (regexObj.test(phonenum)) {
@@ -282,11 +317,3 @@ function yelpQuery(food, loc, num) {
         }
     }
 });
-
-
-
-
-
-
-
-

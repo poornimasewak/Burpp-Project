@@ -409,7 +409,7 @@ img {
 /* Clients
 ---------------------------------*/
 .client-part{
-	background:url(../img/section-bg1.jpg) center center no-repeat;
+	background:url(../img/reviewphoto.jpg) center center no-repeat;
 	background-size:cover;
 	padding:55px 0;
 	text-align:center;
@@ -695,6 +695,11 @@ border: 2px solid #fff;
 .form{
 	margin:0 66px 0 30px;
 }
+
+.col-lg-6 {
+	width: 100%;
+}
+
 .input-text{
 	padding:15px 16px;
 	border:1px solid #ccc;
@@ -734,10 +739,15 @@ border: 2px solid #fff;
 	font-family: 'Montserrat', sans-serif;
 	font-weight:400;
 	border:0px;
+	margin-bottom: 5%;
 	transition:all 0.3s ease-in-out;
 	-moz-transition:all 0.3s ease-in-out;
 	-webkit-transition:all 0.3s ease-in-out;
 }
+
+/*.review-instructions {
+	width: 50%;
+}*/
 
 .input-btn:hover{
 	background: #111;
@@ -905,6 +915,11 @@ border: 2px solid #fff;
 .h5-title {
 	text-align: centered;
 	font-weight: bold;
+}
+
+a {
+	color: #fff;
+	margin-left: 50px;
 }
 /*.div-recipe has two asides (.aside-left-image) and 
   (.aside-right-recipe-content)*/
