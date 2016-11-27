@@ -49,6 +49,9 @@
 
 
 <header class="header" id="header"><!--header-start-->
+
+   <!-- Login Modal -->
+
  <div class="container">
    <h1 class="animated fadeInDown delay-07s">BURPP</h1>
    <ul class="we-create animated fadeInUp delay-1s">
@@ -64,6 +67,7 @@
       <button onClick="document.getElementById('service').scrollIntoView();" class="btn btn-default" id="btn-food" type="submit">Submit</button>
    </form>
 </div>
+
 <div id="myModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -74,17 +78,18 @@
             <div class="modal-body">
                 <p>Log In</p>
                 <form id="my-form">
-                    <div class="form-group">
-                    <!-- Name Input -->
-                        <input type="text" class="form-control" id="name-i" placeholder="Name" required>
-                    </div>
-                    <div class="form-group">
-                    <!-- Email Input -->
-                        <input type="email" form="my-form" class="form-control" id="email-i" placeholder="Email Address" name="email" required>
-                    </div>
-                    <!-- Submit Button -->
-                    <input type="submit" class="btn btn-primary" id="login-btn" value="Login">
-                </form>
+                      <div class="form-group">
+                      <!-- Name Input -->
+                
+                    <input type="text" class="form-control" id="namei" placeholder="Name" required>
+                      </div>
+                      <div class="form-group">
+                      <!-- Email Input -->
+                   <input type="email" form="my-form" class="form-control" id="emaili" placeholder="Email Address" name="email" required>
+                      </div>
+                      <!-- Submit Button -->
+                      <input type="submit" class="btn btn-primary" id="login-btn" value="Login">
+                  </form>
             </div>
         </div>
     </div>
@@ -98,14 +103,21 @@
 <nav class="main-nav-outer" id="test">
     <div class="container">
         <ul class="main-nav">
+
             <li><a href="#header">Home</a></li>
             <li><a href="#service">Food Recipes</a></li>
             <li><a href="#Portfolio">Restaurants</a></li>
+
             <li><a href="#client">Reviews</a></li>
             <li><a href="#team">Team</a></li>
             <li><a href="#contact">Be Heard</a></li>
         </ul>
+
         <!-- <a class="res-nav_click" href="#"><i class="fa-bars"></i></a> -->
+        <!-- <div class ="top-right"></div> -->
+
+        <!-- <a class="res-nav_click" href="#"><i class="fa-bars"></i></a> -->
+
     </div>
 </nav>
 <!--main-nav-end-->
@@ -189,7 +201,10 @@
                     <p>Photography</p>
                 </div> 
     </div>
-</section>
+
+</section><!--main-section-end-->
+
+
 
 <section class="main-section client-part" id="client">
     <div class="container">
@@ -236,12 +251,7 @@
                 <div class="team-leader wow fadeInDown delay-03s"> 
                     <div class="team-leader-shadow"><a href="#"></a></div>
                     <img src="img/team-leader-pic1.jpg" alt="">
-                    <!-- <ul>
-                        <li><a href="#" class="fa-twitter"></a></li>
-                        <li><a href="#" class="fa-facebook"></a></li>
-                        <li><a href="#" class="fa-pinterest"></a></li>
-                        <li><a href="#" class="fa-google-plus"></a></li>
-                    </ul> -->
+                    
                 </div>
                 <h3 class="wow fadeInDown delay-03s">Walter White</h3>
                 <span class="wow fadeInDown delay-03s">Chief Executive Officer</span>
@@ -251,12 +261,7 @@
                 <div class="team-leader  wow fadeInDown delay-06s"> 
                     <div class="team-leader-shadow"><a href="#"></a></div>
                     <img src="img/team-leader-pic2.jpg" alt="">
-                   <!--  <ul>
-                        <li><a href="#" class="fa-twitter"></a></li>
-                        <li><a href="#" class="fa-facebook"></a></li>
-                        <li><a href="#" class="fa-pinterest"></a></li>
-                        <li><a href="#" class="fa-google-plus"></a></li>
-                    </ul> -->
+                   
                 </div>
                 <h3 class="wow fadeInDown delay-06s">Jesse Pinkman</h3>
                 <span class="wow fadeInDown delay-06s">Product Manager</span>
@@ -266,12 +271,17 @@
                 <div class="team-leader wow fadeInDown delay-09s"> 
                     <div class="team-leader-shadow"><a href="#"></a></div>
                     <img src="img/team-leader-pic3.jpg" alt="">
-                   <!--  <ul>
-                        <li><a href="#" class="fa-twitter"></a></li>
-                        <li><a href="#" class="fa-facebook"></a></li>
-                        <li><a href="#" class="fa-pinterest"></a></li>
-                        <li><a href="#" class="fa-google-plus"></a></li>
-                    </ul> -->
+                  
+                </div>
+                <h3 class="wow fadeInDown delay-09s">Skyler white</h3>
+                <span class="wow fadeInDown delay-09s">Accountant</span>
+                <p class="wow fadeInDown delay-09s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
+            </div>
+             <div class="team-leader-box">
+                <div class="team-leader wow fadeInDown delay-09s"> 
+                    <div class="team-leader-shadow"><a href="#"></a></div>
+                    <img src="img/team-leader-pic3.jpg" alt="">
+                  
                 </div>
                 <h3 class="wow fadeInDown delay-09s">Skyler white</h3>
                 <span class="wow fadeInDown delay-09s">Accountant</span>

@@ -1,26 +1,32 @@
-$(document).ready(function() {
+$(document).ready(function(){
+        $('#myModal').modal('show');
+
 
 //Displaying login modal
 $('#myModal').modal('show');
 
 //Initialize Firebase
 var config = {
+
     apiKey: "AIzaSyDGGznJOne1Hcc7r4s8q8DFqOsrOX78OiI",
     authDomain: "burpp-project-d026b.firebaseapp.com",
     databaseURL: "https://burpp-project-d026b.firebaseio.com",
     storageBucket: "burpp-project-d026b.appspot.com",
     messagingSenderId: "502802226183"
-};
-firebase.initializeApp(config);
+  };
+  firebase.initializeApp(config);
 
-var database = firebase.database();
+
+  var database = firebase.database();
 
 
 //Creating variables for login
 var nameInput = '';
 var emailInput = '';
 
+
 //Create login button
+
 $('#login-btn').on('click', function(){
 
     if ($('#namei').get(0).checkValidity()){
@@ -39,6 +45,21 @@ $('#login-btn').on('click', function(){
         return false;
     }
 });
+
+// if ($('#namei').text() === '')
+//     $('#myModal').modal('show');
+// else {
+//     nameInput = $('#namei').val().trim();
+//     emailInput = $('#emaili').val().trim();
+//     $('.top-right').html('Welcome,' + ' ' + nameInput);
+//     $('#myModal').modal('hide');
+//     return false;
+// }
+
+// database.ref().push({
+//     nameInput: nameInput,
+//     emailInput: emailInput,
+// });
 
 // Capture Button Click
 $("#btn-food").on("click", function() {
@@ -296,12 +317,3 @@ function yelpQuery(food, loc, num) {
         }
     }
 });
-
-
-
-
-
-
-
-
-
