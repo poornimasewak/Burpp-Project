@@ -63,6 +63,8 @@
                     <input class="form-control" id="location" type="text" placeholder="City or Zip Code:">
                 </div>
                 <button onClick="document.getElementById('service').scrollIntoView();" class="btn btn-default" id="btn-food" type="submit">Submit</button>
+                <!-- We will display this butoon if the user is logged in and has saved recipes -->
+                <button class="btn btn-default" id="btn-show-recipes" type="submit" style="display: none;">See Saved Recipes</button>
             </form>
         </div>
         <div id="myModal" class="modal fade">
@@ -121,6 +123,12 @@
                         </div>
                         <!--                         <div class="service-list-col2 div-recipe-area">
                         </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 ">
+                    <div class="panel panel-default div-saved-recipes">
                     </div>
                 </div>
             </div>

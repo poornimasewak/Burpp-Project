@@ -8,6 +8,7 @@ $(document).ready(function() {
     //Creating variables for login
     var user = "";
     var email = "";
+    var userLoggedIn = false;
 
     // Initialize Firebase
     // var config = {
@@ -31,8 +32,7 @@ $(document).ready(function() {
 
     var dataRef = null;
 
-
-        // displaying login modal
+    // displaying login modal
     $('#myModal').modal('show');
 
     // Food and Location Button Click
@@ -42,18 +42,17 @@ $(document).ready(function() {
         var loc = $("#location").val().trim();
 
         // UNCOMMENT THE 5 LINES BELOW TO QUERY YELP AND EDAMAM
-        if(fname === '' || loc === '') {
-           alert("Food and Location are both required");
+        if (fname === '' || loc === '') {
+            alert("Food and Location are both required");
         }
         yelpQuery(fname, loc, "10");
-        edamamQuery(fname);        
+        edamamQuery(fname);
 
         // FOR DEVELOPMENT - Use JSON file instead of internet query
         // If you cannot connect to the edamam and yelp api, uncomment these
         // below
         //fakeYelpQuery(fname, loc, "10");
         //fakeEdamamQuery(fname);
-
         return false;
     });
 
@@ -90,11 +89,14 @@ $(document).ready(function() {
         // Don't refresh the page!
         return false;
     });
+
     // Capture Log Out Button Click
     $("#logout-btn").on("click", function() {
         firebase.auth().signOut();
         dataRef.goOffline();
         dataRef = null;
+        user = "";
+        email = "";
         // userLoggedIn = false; set in auth().onAuthStateChanged
         console.log('$("#logout-btn").on("click", function() ');
         // Don't refresh the page!
@@ -120,16 +122,50 @@ $(document).ready(function() {
     // Capture Login,logout, and new user Events
     firebase.auth().onAuthStateChanged(function(user_obj) {
         if (user_obj) {
+            console.log(user_obj);
             // Log In
             if (dataRef) {
                 $("#myModal").modal('hide');
+                userLoggedIn = true;
+                getFirebaseRecipes();
+                $("#btn-show-recipes").show();
             }
         } else {
+            userLoggedIn = false;
+            $("#btn-show-recipes").hide();
         }
         console.log('firebase.auth().onAuthStateChanged(function(user_obj) ');
         // Don't refresh the page!
         return false;
     });
+
+    // Capture Show Saved Recipes Button Click
+    $("#btn-show-recipes").on("click", function() {
+        $(".div-saved-recipes").empty();
+        // Make panel heading
+        var divSavedRecipeHeading = $('<div class="panel-heading">');
+        divSavedRecipeHeading.html('<h3 class="panel-title">Saved Recipes</h3>');
+        $(".div-saved-recipes").append(divSavedRecipeHeading);
+
+        // Add panel contents
+        var divSavedRecipeBody = $('<div class="panel-body div-saved-recipe-panel-body">');
+
+        for (var i = 0; i < firebaseRecipes.length; i++) {
+            var link = $('<a>');
+            link.text(firebaseRecipes[i][0]);
+            link.attr("href", firebaseRecipes[i][1]);
+            // open recipe link in new tab
+            link.attr("target", "_blank");
+            divSavedRecipeBody.append(link);
+            divSavedRecipeBody.append('<hr>');
+        }
+        $(".div-saved-recipes").append(divSavedRecipeBody);
+
+        console.log('$("#btn-show-recipes").on("click", function() ');
+        // Don't refresh the page!
+        return false;
+    });
+
     // If the recipe name is already in the firebase database, return true
     // If it is not, return false 
     function recipeIsInFirebase(recipeName) {
@@ -140,6 +176,7 @@ $(document).ready(function() {
         }
         return false;
     }
+
     // Clear the firebaseRecipes array and go to firebase and fill the
     // firebaseRecipes with the recipes stored in firebase
     function getFirebaseRecipes() {
@@ -250,7 +287,7 @@ $(document).ready(function() {
 
         //btnId = 'id-save-recipe' + i.toString();
         //btnSaveRecipe = $('<button class="btn btn-default btn-save-recipe" id="' + btnId + '" type="submit">Save Recipe</button>');
-        btnSaveRecipe = $('<button class="btn btn-default btn-save-recipe" type="submit">Save Recipe</button>');
+        var btnSaveRecipe = $('<button class="btn btn-default btn-save-recipe" type="submit">Save Recipe</button>');
         btnSaveRecipe.attr("data-recipe-link", recipe.url);
         btnSaveRecipe.attr("data-recipe-name", recipe.label);
 
