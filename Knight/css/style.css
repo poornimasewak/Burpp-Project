@@ -79,6 +79,11 @@ h3{
 	text-transform:uppercase;
 	font-weight:400;
 }
+
+h4{
+	color:#bcbcbc;
+}
+
 h6{
 	font-size:16px;
 	color:#888888;
@@ -98,6 +103,8 @@ p{
 .header{
 	text-align:center;
 	background:url(../img/Food-Wallpaper-HD.jpg) left top repeat;
+	background-color: rgba(255, 0, 0, .5)
+	opacity: 0.5;
 	background-size: cover;
 	padding:280px 0;
 }
@@ -124,7 +131,7 @@ p{
 .we-create li{
 	display:inline-block;
 	font-family: 'Montserrat',sans-serif;
-	font-size:14px;
+	font-size:20px;
 	color: #bcbcbc;
 	text-transform: uppercase;
 	font-weight: 400;
