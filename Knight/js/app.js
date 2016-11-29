@@ -46,21 +46,6 @@ $('#login-btn').on('click', function(){
     }
 });
 
-// if ($('#namei').text() === '')
-//     $('#myModal').modal('show');
-// else {
-//     nameInput = $('#namei').val().trim();
-//     emailInput = $('#emaili').val().trim();
-//     $('.top-right').html('Welcome,' + ' ' + nameInput);
-//     $('#myModal').modal('hide');
-//     return false;
-// }
-
-// database.ref().push({
-//     nameInput: nameInput,
-//     emailInput: emailInput,
-// });
-
 // Capture Button Click
 $("#btn-food").on("click", function() {
     // Grabbed value from text boxes
