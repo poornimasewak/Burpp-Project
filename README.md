@@ -1,5 +1,5 @@
 # Burpp
-An app where a user can search for any cuisine/food/ingredient and restaurants and recipes featuring what you've typed in will populate.
+A food app where a user can search for any cuisine/food/ingredient and restaurants and recipes featuring what you've typed in will populate.
 
 Our App:
 We were all very passionate about food and eating but we also recognized that we live in a fast-paced world and needed a food app that could keep up with our constant indecision. By putting recipes and restaurants side-by-side, it will allow the user the freedom to change their mind on a whim.
