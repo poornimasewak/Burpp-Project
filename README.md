@@ -11,7 +11,7 @@ Heroku Link:
 
 Technologies Used:
 We used Sublime Text, AJAX, Firebase and Bootstrap.
-For our API's, we chose to go with the Edaman API (recipes) and the Yelp API (restaurants)
+For our API's, we chose to go with the Edaman API (recipes) and the Yelp API (restaurants).
 
 Prerequisities:
 You must login before using this service. Login using the modal on the home page.
