@@ -41,3 +41,4 @@ Emily Turner-Sherwood
 Maria Garcia
 
 Acknowledgments:
+We want to thank the instructor and the TA's for all their help with this project! 
