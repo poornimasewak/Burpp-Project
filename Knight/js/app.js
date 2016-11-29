@@ -105,9 +105,17 @@ $("#btn-food").on("click", function() {
     return false;
 });
 
+
+ function makeRecipeDivHeading() {
+        var divRecipeHeading = $('<div class="panel-heading">');
+        divRecipeHeading.html('<h3 class="panel-title">Edamam Recipes</h3>');
+        $(".div-recipe-area").append(divRecipeHeading);
+    }
+
+    
 function makeRecipeDiv(response, i) {
 
-var p = $('<h5>').text(response.hits[i].recipe.label);
+    var p = $('<h5>').text(response.hits[i].recipe.label);
 
 
     var divIndividualRecipe = $('<div class="panel panel-default div-recipe">');
