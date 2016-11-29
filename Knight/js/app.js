@@ -70,10 +70,15 @@ $(document).ready(function() {
                 userLoggedIn = true;
                 getFirebaseRecipes();
                 $("#btn-show-recipes").show();
+                $("#logout-btn").show();
             }
         } else {
             userLoggedIn = false;
+            firebaseRecipes = [];
+            $(".div-saved-recipes").empty();
             $("#btn-show-recipes").hide();
+            $("#logout-btn").hide();
+            $('#myModal').modal('show');
         }
         console.log('firebase.auth().onAuthStateChanged(function(nameInput_obj) ');
         // Don't refresh the page!

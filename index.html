@@ -59,7 +59,7 @@
                 </div>
                 <button onClick="document.getElementById('service').scrollIntoView();" class="btn btn-default" id="btn-food" type="submit">Submit</button>
                 <!-- We will display this butoon if the user is logged in and has saved recipes -->
-                <button class="btn btn-default" id="btn-show-recipes" type="submit" style="display: none;">See Saved Recipes</button>
+                <!-- <button class="btn btn-default" id="btn-show-recipes" type="submit" style="display: none;">See Saved Recipes</button> -->
             </form>
         </div>
         <div id="myModal" class="modal fade">
@@ -83,7 +83,7 @@
                             <!-- Submit Button -->
                             <input type="submit" class="btn btn-primary" id="login-btn" value="Login">
                             <input type="submit" class="btn btn-primary" id="new-user-btn" value="New User">
-                            <input type="submit" class="btn btn-primary" id="logout-btn" value="Log Out">
+                            <!-- <input type="submit" class="btn btn-primary" id="logout-btn" value="Log Out"> -->
                         </form>
                     </div>
                 </div>
@@ -111,6 +111,8 @@
     <!--main-section-start-->
     <section class="main-section" id="service">
         <div class="container">
+            <button class="btn btn-default" id="logout-btn" type="submit" style="display: none;">Log Out</button>
+            <button class="btn btn-default" id="btn-show-recipes" type="submit" style="display: none;">See Saved Recipes</button>
             <h2 id="demo">Recipes | Restaurants</h2>
             <h6>We offer exceptional service with complimentary hugs.</h6>
             <div class="row">
