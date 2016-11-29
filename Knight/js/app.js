@@ -492,4 +492,44 @@ $(document).ready(function() {
             return phonenum;
         }
     }
+
+    // Dut to the recipe site edamam being down most of Thanksgiving day, 
+    // I saved an edamam query and a yelp query as JSON strings and read
+    // them to allow me to continue to develop without depending on these
+    // sites responding. So I added 'fake' functions to simulate the 
+    // responses
+
+    $("#demo").on("click", function() {
+        fakeYelpQuery();
+        fakeEdamamQuery();
+        return false;
+    });
+    
+    function fakeEdamamQuery() {
+        var response = "";
+        try {
+            response = JSON.parse(edamam_str);
+        } catch (err) {
+            console.log(err.message);
+            return;
+        }
+
+        $('.div-recipe-area').empty();
+        makeRecipeDivHeading();
+        for (var i = 0; i < response.hits.length; i++) {
+            makeRecipeDiv(response, i);
+        }
+    }
+
+    function fakeYelpQuery() {
+        var response = "";
+        try {
+            response = JSON.parse(yelp_str);
+        } catch (err) {
+            console.log(err.message);
+            return;
+        }
+        makeYelpDiv(response);
+    }
+
 });
