@@ -1,4 +1,4 @@
-# Burpp-Project
+# Burpp
 An app where a user can search for any cuisine/food/ingredient and restaurants and recipes featuring what you've typed in will populate.
 
 Our App:
