@@ -31,8 +31,9 @@ $('#login-btn').on('click', function(){
 
     if ($('#namei').get(0).checkValidity()){
         nameInput = $('#namei').val().trim();
+    if ($('#emaili').get(0).checkValidity()){
         emailInput = $('#emaili').val().trim();
-        $("#myModal").modal('hide'); //Hiding modal
+        $('#myModal').modal('hide'); //Hiding modal
 
         database.ref().push({
             nameInput: nameInput,
@@ -44,7 +45,9 @@ $('#login-btn').on('click', function(){
 
         return false;
     }
+}
 });
+
 
 // Capture Button Click
 $("#btn-food").on("click", function() {
