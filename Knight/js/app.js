@@ -49,54 +49,74 @@ $('#login-btn').on('click', function(){
 });
 
 
-// Capture Button Click
-$("#btn-food").on("click", function() {
-    // Grabbed value from text boxes
 
-    var fname = $("#food-search").val().trim();
-    var loc = $("#location").val().trim();
-    console.log("food: " + fname);
+// // Capture Button Click
+// $("#btn-food").on("click", function() {
+//     // Grabbed value from text boxes
 
-    var response = yelpQuery(fname, loc, "10");
-    
+//     var fname = $("#food-search").val().trim();
+//     var loc = $("#location").val().trim();
+//     console.log("food: " + fname);
 
-    // The following 4 variables are in the order they need to be 
-    // concatenated in var queryURL
-    var crossoriginURL = "https://crossorigin.me/";
-    var edamamURL = "https://api.edamam.com/search?";
-    var search = "q=" + fname;
-    var keys = "&app_id=e5ee4c7d&app_key=c8fc66f63a363261369faadc4fdd29ae";
+//     var response = yelpQuery(fname, loc, "10");
 
-    var queryURL = crossoriginURL + edamamURL + search + keys;
 
-    var config = {
-        url: queryURL,
-        method: 'GET'
-    };
-    console.log("url before query: " + queryURL);
+// Food and Location Button Click
+    $("#btn-food").on("click", function() {
+        // Grabbed values from text boxes
+        var fname = $("#food-search").val().trim();
+        var loc = $("#location").val().trim();
 
-    $.ajax({
+        // UNCOMMENT THE 5 LINES BELOW TO QUERY YELP AND EDAMAM
+        if (fname === '' || loc === '') {
+            alert("Food and Location are both required");
+        }
+        yelpQuery(fname, loc, "10");
+        edamamQuery(fname);
+
+        // FOR DEVELOPMENT - Use JSON file instead of internet query
+        // If you cannot connect to the edamam and yelp api, uncomment these
+        // below
+        //fakeYelpQuery(fname, loc, "10");
+        //fakeEdamamQuery(fname);
+        return false;
+    });
+
+    function edamamQuery(fname) {
+        // The following 4 variables are in the order they need to be 
+        // concatenated in var queryURL
+        var crossoriginURL = "https://crossorigin.me/";
+        var edamamURL = "https://api.edamam.com/search?";
+        var search = "q=" + fname;
+        var keys = "&app_id=e5ee4c7d&app_key=c8fc66f63a363261369faadc4fdd29ae";
+
+        var queryURL = crossoriginURL + edamamURL + search + keys;
+
+        var config = {
             url: queryURL,
             method: 'GET'
-        })
-        .done(function(response) {
-            console.log(".done: " + response);
+        };
+        console.log("url before query: " + queryURL);
 
-            $('.div-recipe-area').empty();
+        $.ajax({
+                url: queryURL,
+                method: 'GET'
+            })
+            .done(function(response) {
+                console.log(".done: " + response);
 
-            for (var i = 0; i < response.hits.length; i++) {
-                makeRecipeDiv(response, i);
-            }
-        });
-
-    // Don't refresh the page!
-    return false;
-});
+                $('.div-recipe-area').empty();
+                makeRecipeDivHeading();
+                for (var i = 0; i < response.hits.length; i++) {
+                    makeRecipeDiv(response, i);
+                }
+            });
+    }
 
 
  function makeRecipeDivHeading() {
         var divRecipeHeading = $('<div class="panel-heading">');
-        divRecipeHeading.html('<h3 class="panel-title">Edamam Recipes</h3>');
+        divRecipeHeading.html('<h3 class="panel-title">Recipes</h3>');
         $(".div-recipe-area").append(divRecipeHeading);
     }
 
