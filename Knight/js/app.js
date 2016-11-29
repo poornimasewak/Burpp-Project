@@ -1,7 +1,7 @@
-$(document).ready(function(){
-        $('#myModal').modal('show');
+$(document).ready(function() {
+    $('#myModal').modal('show');
 
-        //Initialize Firebase
+    //Initialize Firebase
     var config = {
         apiKey: "AIzaSyDBkWZlIkEEPy051GZpeWiividhJDMSNrw",
         authDomain: "child-9eadc.firebaseapp.com",
@@ -9,10 +9,10 @@ $(document).ready(function(){
         storageBucket: "child-9eadc.appspot.com",
         messagingSenderId: "264082459609"
     };
-  firebase.initializeApp(config);
+    firebase.initializeApp(config);
 
 
-  var database = null;
+    var database = null;
 
     // An 2 dimentional array of the firebase recipes for user if they are 
     // logged in. 
@@ -25,9 +25,9 @@ $(document).ready(function(){
     var emailInput = "";
     var userLoggedIn = false;
 
-//Create login button
+    //Create login button
 
-$('#login-btn').on('click', function(){
+    $('#login-btn').on('click', function() {
 
         // open Database
         database = firebase.database();
@@ -43,8 +43,8 @@ $('#login-btn').on('click', function(){
         $('.top-right').html('Welcome,' + ' ' + nameInput);
 
         return false;
-   
-});
+
+    });
 
 
     // Capture Log Out Button Click
@@ -96,20 +96,20 @@ $('#login-btn').on('click', function(){
         return false;
     });
 
-// if ($('#namei').text() === '')
-//     $('#myModal').modal('show');
-// else {
-//     nameInput = $('#namei').val().trim();
-//     emailInput = $('#emaili').val().trim();
-//     $('.top-right').html('Welcome,' + ' ' + nameInput);
-//     $('#myModal').modal('hide');
-//     return false;
-// }
+    // if ($('#namei').text() === '')
+    //     $('#myModal').modal('show');
+    // else {
+    //     nameInput = $('#namei').val().trim();
+    //     emailInput = $('#emaili').val().trim();
+    //     $('.top-right').html('Welcome,' + ' ' + nameInput);
+    //     $('#myModal').modal('hide');
+    //     return false;
+    // }
 
-// database.ref().push({
-//     nameInput: nameInput,
-//     emailInput: emailInput,
-// });
+    // database.ref().push({
+    //     nameInput: nameInput,
+    //     emailInput: emailInput,
+    // });
 
     // Food and Location Button Click
     $("#btn-food").on("click", function() {
@@ -150,7 +150,7 @@ $('#login-btn').on('click', function(){
         return false;
     });
 
-        // Capture Show Saved Recipes Button Click
+    // Capture Show Saved Recipes Button Click
     $("#btn-show-recipes").on("click", function() {
         $(".div-saved-recipes").empty();
         // Make panel heading
@@ -457,7 +457,7 @@ $('#login-btn').on('click', function(){
     var reviewR = '';
     var reviewHere = '';
 
-    $('#review-btn').on('click', function(){
+    $('#review-btn').on('click', function() {
         reviewName = $('#your-name').val().trim();
         reviewR = $('#restaurant-identify').val().trim();
         reviewHere = $('#write-review').val().trim();
@@ -482,7 +482,9 @@ $('#login-btn').on('click', function(){
         if (regexObj.test(phonenum)) {
             var parts = phonenum.match(regexObj);
             var phone = "";
-            if (parts[1]) { phone += "+1 (" + parts[1] + ") "; }
+            if (parts[1]) {
+                phone += "+1 (" + parts[1] + ") ";
+            }
             phone += parts[2] + "-" + parts[3];
             return phone;
         } else {

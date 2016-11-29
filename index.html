@@ -1,77 +1,66 @@
 <!doctype html>
-<html>
+<html lang = "en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, maximum-scale=1">
-
-<title>Homepage</title>
-<link rel="icon" href="Knight/favicon.png" type="image/png">
-<link rel="shortcut icon" href="Knight/favicon.ico" type="img/x-icon">
-
-<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600' rel='stylesheet' type='text/css'>
-
-<link href="Knight/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="Knight/css/style.css" rel="stylesheet" type="text/css">
-<link href="Knight/css/font-awesome.css" rel="stylesheet" type="text/css">
-<link href="Knight/css/responsive.css" rel="stylesheet" type="text/css">
-<link href="Knight/css/animate.css" rel="stylesheet" type="text/css">
-
-<!--[if IE]><style type="text/css">.pie {behavior:url(PIE.htc);}</style><![endif]-->
-
-<script type="text/javascript" src="Knight/js/jquery.1.8.3.min.js"></script>
-<script type="text/javascript" src="Knight/js/bootstrap.js"></script>
-<script type="text/javascript" src="Knight/js/jquery-scrolltofixed.js"></script>
-<script type="text/javascript" src="Knight/js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="Knight/js/jquery.isotope.js"></script>
-<script type="text/javascript" src="Knight/js/wow.js"></script>
-<script type="text/javascript" src="Knight/js/classie.js"></script>
-<!-- 2 Libraries -->
-<script type="text/javascript" src="Knight/js/libs/oauth.js"></script>
-<script type="text/javascript" src="Knight/js/libs/sha.js"></script>
-<!-- <script src="contactform/contactform.js"></script> -->
-<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
-<!-- our javascript coding -->
-<script type="text/javascript" src="Knight/js/app.js"></script>
-
-
-<!-- =======================================================
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1">
+    <title>Homepage</title>
+    <link rel="icon" href="Knight/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="Knight/favicon.ico" type="img/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600' rel='stylesheet' type='text/css'>
+    <link href="Knight/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="Knight/css/style.css" rel="stylesheet" type="text/css">
+    <link href="Knight/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="Knight/css/responsive.css" rel="stylesheet" type="text/css">
+    <link href="Knight/css/animate.css" rel="stylesheet" type="text/css">
+    <!--[if IE]><style type="text/css">.pie {behavior:url(PIE.htc);}</style><![endif]-->
+    <script type="text/javascript" src="Knight/js/jquery.1.8.3.min.js"></script>
+    <script type="text/javascript" src="Knight/js/bootstrap.js"></script>
+    <script type="text/javascript" src="Knight/js/jquery-scrolltofixed.js"></script>
+    <script type="text/javascript" src="Knight/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="Knight/js/jquery.isotope.js"></script>
+    <script type="text/javascript" src="Knight/js/wow.js"></script>
+    <script type="text/javascript" src="Knight/js/classie.js"></script>
+    <!-- 2 Libraries -->
+    <script type="text/javascript" src="Knight/js/libs/oauth.js"></script>
+    <script type="text/javascript" src="Knight/js/libs/sha.js"></script>
+    <!-- <script src="contactform/contactform.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+    <!-- our javascript coding -->
+    <script type="text/javascript" src="Knight/js/app.js"></script>
+    <!-- =======================================================
     Theme Name: Knight
     Theme URL: https://bootstrapmade.com/knight-free-bootstrap-theme/
     Author: BootstrapMade
     Author URL: https://bootstrapmade.com
 ======================================================= -->
-
 </head>
+
 <body>
-
-<!-- Login Modal -->
-
-
-<header class="header" id="header"><!--header-start-->
-
-   <!-- Login Modal -->
-
- <div class="container">
-   <h1 class="animated fadeInDown delay-07s">BURPP</h1>
-   <ul class="we-create animated fadeInUp delay-1s">
-      <li>Your Food Indecision App!</li>
-   </ul>
-   <!-- Add Food Form-->
-   <form>
-      <div class="form-group">
-         <!-- <label for="food-search"></label> -->
-         <input class="form-control" id="food-search" type="text" placeholder="Search Food">
-         <input class="form-control" id="location" type="text" placeholder="city or zipcode">
-      </div>
-      <button onClick="document.getElementById('service').scrollIntoView();" class="btn btn-default" id="btn-food" type="submit">Submit</button>
-    <!-- We will display this butoon if the user is logged in and has saved recipes -->
-    <button class="btn btn-default" id="btn-show-recipes" type="submit" style="display: none;">See Saved Recipes</button>
-   </form>
-</div>
-
-<div id="myModal" class="modal fade">
-    <div class="modal-dialog">
+    <!-- Login Modal -->
+    <header class="header" id="header">
+        <!--header-start-->
+        <!-- Login Modal -->
+        <div class="container">
+            <h1 class="animated fadeInDown delay-07s">BURPP</h1>
+            <ul class="we-create animated fadeInUp delay-1s">
+                <li>Your Food Indecision App!</li>
+            </ul>
+            <!-- Add Food Form-->
+            <form>
+                <div class="form-group">
+                    <!-- <label for="food-search"></label> -->
+                    <input class="form-control" id="food-search" type="text" placeholder="Search Food">
+                    <input class="form-control" id="location" type="text" placeholder="city or zipcode">
+                </div>
+                <button onClick="document.getElementById('service').scrollIntoView();" class="btn btn-default" id="btn-food" type="submit">Submit</button>
+                <!-- We will display this butoon if the user is logged in and has saved recipes -->
+                <button class="btn btn-default" id="btn-show-recipes" type="submit" style="display: none;">See Saved Recipes</button>
+            </form>
+        </div>
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <!--    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
@@ -95,51 +84,40 @@
                         </form>
                     </div>
                 </div>
-    </div>
-</div>
-
-
-</header>
-<!--header-end-->
-
-<!--main-nav-start-->
-<nav class="main-nav-outer" id="test">
-    <div class="container">
-        <ul class="main-nav">
-
-            <li><a href="#header">Home</a></li>
-            <li><a href="#service">Food</a></li>
-           <!--  <li><a href="#Portfolio">Restaurants</a></li> -->
-
-            <li><a href="#client">Reviews</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#contact">Be Heard</a></li>
-        </ul>
-
-        <!-- <a class="res-nav_click" href="#"><i class="fa-bars"></i></a> -->
-        <!-- <div class ="top-right"></div> -->
-
-        <!-- <a class="res-nav_click" href="#"><i class="fa-bars"></i></a> -->
-
-    </div>
-</nav>
-<!--main-nav-end-->
-
-
-<!--main-section-start-->
-<section class="main-section" id="service">
-    <div class="container">
-        <h2>Recipes | Restaurants</h2>
-        <h6>We offer exceptional service with complimentary hugs.</h6>
-        <div class="row">
-            <div class="col-sm-12 wow fadeInLeft delay-05s">
-                <div class="service-list">
-                    <div class="service-list-col1">
-
-                    </div>
-                </div>        
             </div>
         </div>
+    </header>
+    <!--header-end-->
+    <!--main-nav-start-->
+    <nav class="main-nav-outer" id="test">
+        <div class="container">
+            <ul class="main-nav">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#service">Food</a></li>
+                <!--  <li><a href="#Portfolio">Restaurants</a></li> -->
+                <li><a href="#client">Reviews</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Be Heard</a></li>
+            </ul>
+            <!-- <a class="res-nav_click" href="#"><i class="fa-bars"></i></a> -->
+            <!-- <div class ="top-right"></div> -->
+            <!-- <a class="res-nav_click" href="#"><i class="fa-bars"></i></a> -->
+        </div>
+    </nav>
+    <!--main-nav-end-->
+    <!--main-section-start-->
+    <section class="main-section" id="service">
+        <div class="container">
+            <h2>Recipes | Restaurants</h2>
+            <h6>We offer exceptional service with complimentary hugs.</h6>
+            <div class="row">
+                <div class="col-sm-12 wow fadeInLeft delay-05s">
+                    <div class="service-list">
+                        <div class="service-list-col1">
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-12 ">
                     <div class="panel panel-default div-saved-recipes">
@@ -156,115 +134,114 @@
                     </div>
                 </div>
             </div>
-    </div>
-</section>
-<!-- main-section-end -->
-
-<section class="main-section client-part" id="client">
-    <div class="container">
-        <b class="quote-right wow fadeInDown delay-03"><i class="fa-quote-right"></i></b>
-        <div class="row">
-            <div class="col-lg-12">
-                <p class="client-part-haead wow fadeInDown delay-05">It was a pleasure to work with the folks at Burpp! They made sure we were well fed and drunk all the time!</p>
-                <p>Burpp Services</p>
-                <p>Sean Bean</p>
-                <p class="client-part-haead wow fadeInDown delay-05">The cheese on the moon was very delicious! I plan on returning as soon as possible!</p>
-                <p>The Moon</p>
-                <p>Wallace Gromit</p>
-                <p class="client-part-haead wow fadeInDown delay-05 user-review"></p>
-                <p class="user-restaurant"></p>
-                <p class="user-name"></p>
-                <div class="div-review-area">
+        </div>
+    </section>
+    <!-- main-section-end -->
+    <section class="main-section client-part" id="client">
+        <div class="container">
+            <b class="quote-right wow fadeInDown delay-03"><i class="fa-quote-right"></i></b>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="client-part-haead wow fadeInDown delay-05">It was a pleasure to work with the folks at Burpp! They made sure we were well fed and drunk all the time!</p>
+                    <p>Burpp Services</p>
+                    <p>Sean Bean</p>
+                    <p class="client-part-haead wow fadeInDown delay-05">The cheese on the moon was very delicious! I plan on returning as soon as possible!</p>
+                    <p>The Moon</p>
+                    <p>Wallace Gromit</p>
+                    <p class="client-part-haead wow fadeInDown delay-05 user-review"></p>
+                    <p class="user-restaurant"></p>
+                    <p class="user-name"></p>
+                    <div class="div-review-area">
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- <ul class="client wow fadeIn delay-05s">
+            <!-- <ul class="client wow fadeIn delay-05s">
             <li><a href="#">
                 <img src="img/client-pic1.jpg" alt="">
                 <h3>James Bond</h3>
                 <span>License To Drink Inc.</span>
             </a></li>
         </ul> -->
-    </div>
-</section> 
-<div class="c-logo-part"> 
-    <div class="container">
-    
-    </div>
-</div><!--c-logo-part-end-->
-<section class="main-section team" id="team"><!--main-section team-start-->
-    <div class="container">
-        <h2>team</h2>
-        <h6>Take a closer look into our amazing team. We won’t bite.</h6>
-        <div class="team-leader-block clearfix">
-            <div class="team-leader-box">
-                <div class="team-leader wow fadeInDown delay-03s"> 
-                    <div class="team-leader-shadow"><a href="#"></a></div>
-                    <img src="Knight/img/team-leader-pic1.jpg" alt="">
-                    
-                </div>
-                <h3 class="wow fadeInDown delay-03s">Walter White</h3>
-                <span class="wow fadeInDown delay-03s">Chief Executive Officer</span>
-                <p class="wow fadeInDown delay-03s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
-            </div>
-            <div class="team-leader-box">
-                <div class="team-leader  wow fadeInDown delay-06s"> 
-                    <div class="team-leader-shadow"><a href="#"></a></div>
-                    <img src="Knight/img/team-leader-pic2.jpg" alt="">
-                   
-                </div>
-                <h3 class="wow fadeInDown delay-06s">Jesse Pinkman</h3>
-                <span class="wow fadeInDown delay-06s">Product Manager</span>
-                <p class="wow fadeInDown delay-06s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
-            </div>
-            <div class="team-leader-box">
-                <div class="team-leader wow fadeInDown delay-09s"> 
-                    <div class="team-leader-shadow"><a href="#"></a></div>
-                    <img src="Knight/img/team-leader-pic3.jpg" alt="">
-                  
-                </div>
-                <h3 class="wow fadeInDown delay-09s">Skyler white</h3>
-                <span class="wow fadeInDown delay-09s">Accountant</span>
-                <p class="wow fadeInDown delay-09s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
-            </div>
-             <div class="team-leader-box">
-                <div class="team-leader wow fadeInDown delay-09s"> 
-                    <div class="team-leader-shadow"><a href="#"></a></div>
-                    <img src="Knight/img/team-leader-pic3.jpg" alt="">
-                  
-                </div>
-                <h3 class="wow fadeInDown delay-09s">Skyler white</h3>
-                <span class="wow fadeInDown delay-09s">Accountant</span>
-                <p class="wow fadeInDown delay-09s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
-            </div>
+        </div>
+    </section>
+    <div class="c-logo-part">
+        <div class="container">
         </div>
     </div>
-</section><!--main-section team-end-->
-
-
-
- <section class="business-talking">
-     <div class="container">
-        <h2>Be Heard</h2>
-        <h4>Visit the review page to see your review!</h4>
-    </div>
-</section>
-<div class="container"> 
-<section class="main-section contact" id="contact">
-
+    <!--c-logo-part-end-->
+    <section class="main-section team" id="team">
+        <!--main-section team-start-->
+        <div class="container">
+            <h2>team</h2>
+            <h6>Take a closer look into our amazing team. We won’t bite.</h6>
+            <div class="team-leader-block clearfix">
+                <div class="team-leader-box">
+                    <div class="team-leader wow fadeInDown delay-03s">
+                        <div class="team-leader-shadow">
+                            <a href="#"></a>
+                        </div>
+                        <img src="Knight/img/team-leader-pic1.jpg" alt="">
+                    </div>
+                    <h3 class="wow fadeInDown delay-03s">Walter White</h3>
+                    <span class="wow fadeInDown delay-03s">Chief Executive Officer</span>
+                    <p class="wow fadeInDown delay-03s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
+                </div>
+                <div class="team-leader-box">
+                    <div class="team-leader  wow fadeInDown delay-06s">
+                        <div class="team-leader-shadow">
+                            <a href="#"></a>
+                        </div>
+                        <img src="Knight/img/team-leader-pic2.jpg" alt="">
+                    </div>
+                    <h3 class="wow fadeInDown delay-06s">Jesse Pinkman</h3>
+                    <span class="wow fadeInDown delay-06s">Product Manager</span>
+                    <p class="wow fadeInDown delay-06s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
+                </div>
+                <div class="team-leader-box">
+                    <div class="team-leader wow fadeInDown delay-09s">
+                        <div class="team-leader-shadow">
+                            <a href="#"></a>
+                        </div>
+                        <img src="Knight/img/team-leader-pic3.jpg" alt="">
+                    </div>
+                    <h3 class="wow fadeInDown delay-09s">Skyler white</h3>
+                    <span class="wow fadeInDown delay-09s">Accountant</span>
+                    <p class="wow fadeInDown delay-09s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
+                </div>
+                <div class="team-leader-box">
+                    <div class="team-leader wow fadeInDown delay-09s">
+                        <div class="team-leader-shadow">
+                            <a href="#"></a>
+                        </div>
+                        <img src="Knight/img/team-leader-pic3.jpg" alt="">
+                    </div>
+                    <h3 class="wow fadeInDown delay-09s">Skyler white</h3>
+                    <span class="wow fadeInDown delay-09s">Accountant</span>
+                    <p class="wow fadeInDown delay-09s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--main-section team-end-->
+    <section class="business-talking">
+        <div class="container">
+            <h2>Be Heard</h2>
+            <h4>Visit the review page to see your review!</h4>
+        </div>
+    </section>
+    <div class="container">
+        <section class="main-section contact" id="contact">
             <div class="col-lg-6 col-sm-5 wow fadeInUp delay-05s">
                 <div class="form">
-                    
                     <div id="sendmessage">Thank you for your review! Check out the review section for your post!</div>
                     <div id="errormessage"></div>
-                    <form action="" method="post" role="form" class="contactForm">
-                    <h3 class="review-instructions">Please share your experience with us! We'd love to hear from you!</h3>
-                    <br>
+                    <form method="post" role="form" class="contactForm">
+                        <h3 class="review-instructions">Please share your experience with us! We'd love to hear from you!</h3>
+                        <br>
                         <div class="form-group">
                             <input type="text" name="name" class="form-control input-text" id="your-name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                             <div class="validation"></div>
                         </div>
-                      
                         <div class="form-group">
                             <input type="text" class="form-control input-text" name="subject" id="restaurant-identify" placeholder="Restaurant or Recipe" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                             <div class="validation"></div>
@@ -273,21 +250,20 @@
                             <textarea class="form-control input-text text-area" id="write-review" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Write Your Review Here"></textarea>
                             <div class="validation"></div>
                         </div>
-                        
-                         <div class="text-center"><button onClick="document.getElementById('client').scrollIntoView();" class="input-btn" id="review-btn" type="submit">Send Review</button></div>
+                        <div class="text-center">
+                            <button onClick="document.getElementById('client').scrollIntoView();" class="input-btn" id="review-btn" type="submit">Send Review</button>
+                        </div>
                     </form>
-                </div>  
+                </div>
             </div>
-        </div>  
-</section>
-</div>
-<footer class="footer">
-    <div class="container">
-        <div class="footer-logo"><a href="#"><h1>BURPP</h1></div>
-       
-        </div>
+        </section>
     </div>
-</footer>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo"><a href="#"></a><h1>BURPP</h1>
+            </div>
+        </div>
+    </footer>
 
 
 <script type="text/javascript">
