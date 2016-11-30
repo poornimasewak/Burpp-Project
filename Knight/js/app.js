@@ -180,7 +180,9 @@ $(document).ready(function() {
                 snapshot.forEach(function(childSnapshot) {
                     // var key = childSnapshot.key;
                     var childData = childSnapshot.val();
-                    firebaseRecipes.push([childData.recipe, childData.url]);
+                    if( recipeIsInFirebase(childData.recipe) === false) {
+                        firebaseRecipes.push([childData.recipe, childData.url]);
+                    }
                 });
             });
         }, function(errorObject) {});
