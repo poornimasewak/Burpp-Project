@@ -144,7 +144,7 @@ $(document).ready(function() {
         var recipeName = $(this).data("recipe-name");
 
         if (recipeIsInFirebase(recipeName) === false) {
-            addRecipe(recipeName, url)
+            addRecipe(recipeName, url);
                 // Update the firebaseRecipes array from the database
             getFirebaseRecipes();
         } else {
