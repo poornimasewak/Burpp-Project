@@ -40,7 +40,8 @@ $(document).ready(function() {
             });
         console.log('$("#login-btn").on("click", function() ');
         //Changing the HTML to display login name
-        $('.top-right').html('Welcome,' + ' ' + nameInput);
+        console.log(emailInput);
+        $('.top-right').html('Welcome,' + ' ' + emailInput);
 
         return false;
 
