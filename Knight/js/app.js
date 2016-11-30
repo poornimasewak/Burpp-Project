@@ -40,7 +40,7 @@ $(document).ready(function() {
             });
         console.log('$("#login-btn").on("click", function() ');
         //Changing the HTML to display login name
-        console.log(emailInput);
+        // console.log(emailInput);
         $('.top-right').html('Welcome,' + ' ' + emailInput);
 
         return false;
@@ -147,7 +147,7 @@ $(document).ready(function() {
         var recipeName = $(this).data("recipe-name");
 
         if (recipeIsInFirebase(recipeName) === false) {
-            addRecipe(recipeName, url)
+            addRecipe(recipeName, url);
                 // Update the firebaseRecipes array from the database
             getFirebaseRecipes();
         } else {
