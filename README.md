@@ -10,7 +10,7 @@ Heroku Link:
 https://still-cliffs-87266.herokuapp.com/
 
 Technologies Used:
-We used Sublime Text, AJAX, Firebase and Bootstrap.
+HTML, CSS, Javascript, JQuery, Bootstrap, Bootstrapmade, Sublime Text, Slack, Heroku, AJAX, Firebase, Github
 For our API's, we chose to go with the Edaman API (recipes) and the Yelp API (restaurants).
 
 Prerequisities:
@@ -26,8 +26,9 @@ Instructions:
 
 
 Built With:
+HTML, CSS, Javascript (JQuery)
 Sublime Text
-Bootstrap - Bootstrap is responsible for the theme that we designed our app on.
+Bootstrap - Bootstrapmade is responsible for the theme that we designed our app on.
 Firebase
 
 Interesting Conflicts Along the Way:
