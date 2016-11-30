@@ -7,7 +7,7 @@ We were all very passionate about food and eating but we also recognized that we
 We also wanted to build a community of trust and honesty with our users which is why we have given them the freedom to type in any food related craving they have in the food search input bar. It will populate regardless, so this app is useful even if you're just looking for ideas! We also promote this trust and honesty concept by not having user reviews censored before posting on the "Review" section.
 
 Heroku Link:
-
+https://still-cliffs-87266.herokuapp.com/
 
 Technologies Used:
 We used Sublime Text, AJAX, Firebase and Bootstrap.
