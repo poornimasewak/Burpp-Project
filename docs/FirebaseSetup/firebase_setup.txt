@@ -1,0 +1,13 @@
+1.) At the firebase console, click on Authentication. 01.png
+2.) Click on setup sign in method                     01.png
+3.) Click on E-mail Password                          02.png
+	a. Slide the Enable slider to the right.
+	b. Click on Save
+4.) Make sure Email Password is enabled.              03.png
+5.) Click on Rules                                    04.png
+6.) Make the rules “auth != null” as you see below.   04.png
+7.) After adding a user click on Authentication. The  05.png
+    webpage and the firebase console can both add new 
+    users.
+8.) Click on database after using the Web page to add 06.png
+    recipes.

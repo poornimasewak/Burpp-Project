@@ -185,7 +185,7 @@ color: #fff;
 	position: absolute;
 	top: 8px;
 	right: 16px;
-	font-size: 13.5px;
+	font-size: 12px;
 }
 
 .main-nav-outer{
@@ -508,30 +508,21 @@ border: 2px solid #fff;
 /* Team
 ---------------------------------*/
 .team-leader-block{
-	max-width:700px;
+	max-width:993px;
 	margin:0 auto;
 }
 .team-leader-box{
 	width:30.66%;
 	margin-right: 3.82979%;
-	height: 350px;
+	height: 490px;
 	overflow: hidden;
 	text-align: center;
 	float: left;
-	margin-bottom: 5%;
 }
-
-.team-photo {
-	width: 100%;
-	display: inline;
-}
-
 .team-leader-box span{
-	margin-bottom:0px;
+	margin-bottom:24px;
 	display:block;
 }
-
-
 .team-leader-box:nth-of-type(3n+0){ margin:0;}
 .team-leader{
 	width:auto;
@@ -961,4 +952,7 @@ a {
 .aside-right-recipe-content {
 	float: left;
 	max-width: 50%;
+}
+#a-saved-recipe-link {
+	color: blue;
 }
