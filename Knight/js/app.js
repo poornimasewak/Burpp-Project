@@ -39,8 +39,8 @@ $(document).ready(function() {
         //Changing the HTML to display login name
         $('.top-right').html('Welcome,' + ' ' + emailInput);
 
-    return false;
-});
+        return false;
+    });
 
 
     // Capture Log Out Button Click
@@ -123,7 +123,7 @@ $(document).ready(function() {
 
         if (recipeIsInFirebase(recipeName) === false) {
             addRecipe(recipeName, url);
-                // Update the firebaseRecipes array from the database
+            // Update the firebaseRecipes array from the database
             getFirebaseRecipes();
         } else {
             alert("Recipe has been previously saved in database.");
@@ -183,9 +183,8 @@ $(document).ready(function() {
                     firebaseRecipes.push([childData.recipe, childData.url]);
                 });
             });
-        }, function(errorObject) {
-        });
-       
+        }, function(errorObject) {});
+
         // Don't refresh the page!
         return false;
     }
@@ -347,10 +346,10 @@ $(document).ready(function() {
                 'cache': true
             })
             .done(function(data, textStatus, jqXHR) {
-            
+
             })
             .fail(function(jqXHR, textStatus, errorThrown) {
-               
+
             });
     }
 
@@ -468,18 +467,12 @@ $(document).ready(function() {
         }
     }
 
-    // Dut to the recipe site edamam being down most of Thanksgiving day, 
-    // I saved an edamam query and a yelp query as JSON strings and read
-    // them to allow me to continue to develop without depending on these
-    // sites responding. So I added 'fake' functions to simulate the 
-    // responses
-
     $("#demo").on("click", function() {
         fakeYelpQuery();
         fakeEdamamQuery();
         return false;
     });
-    
+
     function fakeEdamamQuery() {
         var response = "";
         try {
