@@ -58,7 +58,7 @@
                   <input class="form-control" id="location" type="text" placeholder="city or zipcode">
                </div>
                <button onClick="document.getElementById('service').scrollIntoView();" class="btn btn-default" id="btn-food" type="submit">Submit</button>
-               <!-- We will display this butoon if the user is logged in and has saved recipes -->
+               <!-- We will display this button if the user is logged in and has saved recipes -->
                <!-- <button class="btn btn-default" id="btn-show-recipes" type="submit" style="display: none;">See Saved Recipes</button> -->
             </form>
          </div>
@@ -66,7 +66,6 @@
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">
-                     <!--    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
                      <h4 class="modal-title">Burpp</h4>
                   </div>
                   <div class="modal-body">
@@ -83,7 +82,6 @@
                         <!-- Submit Button -->
                         <input type="submit" class="btn btn-primary" id="login-btn" value="Login">
                         <input type="submit" class="btn btn-primary" id="new-user-btn" value="New User">
-                        <!-- <input type="submit" class="btn btn-primary" id="logout-btn" value="Log Out"> -->
                      </form>
                   </div>
                </div>
@@ -248,8 +246,8 @@
       <footer class="footer">
          <div class="container">
             <div class="footer-logo">
-            <h1>BURPP</h1>
-         </div>
+               <h1>BURPP</h1>
+            </div>
          </div>
       </footer>
       <script type="text/javascript">
@@ -281,12 +279,7 @@
                  $('html, body').stop().animate({
                      scrollTop: $($anchor.attr('href')).offset().top - 102
                  }, 1500,'easeInOutExpo');
-                 /*
-                 if you don't want to use the easing effects:
-                 $('html, body').stop().animate({
-                     scrollTop: $($anchor.attr('href')).offset().top
-                 }, 1000);
-                 */
+                 
                  event.preventDefault();
              });
          });
@@ -336,4 +329,5 @@
       </script>
    </body>
 </html>
+
 
