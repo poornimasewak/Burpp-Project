@@ -75,7 +75,7 @@ $(document).ready(function() {
             firebaseRecipes = [];
             $(".div-saved-recipes").empty();
             $("#btn-show-recipes").hide();
-            $("#logout-btn").hide();
+            // $("#logout-btn").hide();
             $('#myModal').modal('show');
         }
         console.log('firebase.auth().onAuthStateChanged(function(nameInput_obj) ');

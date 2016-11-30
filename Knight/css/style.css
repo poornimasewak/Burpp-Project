@@ -188,6 +188,15 @@ color: #fff;
 	font-size: 12px;
 }
 
+#logout-btn {
+	margin-left: 40%;
+}
+
+.btn-default {
+	margin-top: 0px;
+	margin-bottom: 15px;
+}
+
 .main-nav-outer{
 	padding:0px;
 	border-bottom:1px solid #dddddd;
