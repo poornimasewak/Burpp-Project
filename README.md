@@ -1,5 +1,5 @@
 # Burpp
-A food app where a user can search for any cuisine/food/ingredient and restaurants and recipes featuring what you've typed in will populate.
+A one-stop food app that caters to everyday food indecision. This app will allow you to search for any cuisine/ingredient and will cleanly display all of your available dine-in or cooking options nearby.
 
 Our App:
 We were all very passionate about food and eating but we also recognized that we live in a fast-paced world and needed a food app that could keep up with our constant indecision. By putting recipes and restaurants side-by-side, it will allow the user the freedom to change their mind on a whim.
@@ -10,7 +10,7 @@ Heroku Link:
 https://still-cliffs-87266.herokuapp.com/
 
 Technologies Used:
-We used Sublime Text, AJAX, Firebase and Bootstrap.
+HTML, CSS, Javascript, JQuery, Bootstrap, Bootstrapmade, Sublime Text, Slack, Heroku, AJAX, Firebase, Github
 For our API's, we chose to go with the Edaman API (recipes) and the Yelp API (restaurants).
 
 Prerequisities:
@@ -26,8 +26,9 @@ Instructions:
 
 
 Built With:
+HTML, CSS, Javascript (JQuery)
 Sublime Text
-Bootstrap - Bootstrap is responsible for the theme that we designed our app on.
+Bootstrap - Bootstrapmade is responsible for the theme that we designed our app on.
 Firebase
 
 Interesting Conflicts Along the Way:
@@ -35,9 +36,9 @@ Had some trouble with the Yelp API call. Had to work with OAuth to get it workin
 
 Authors:
 (Found on Team page on app)
-Poornima Sewak
-Michael Meder
-Emily Turner-Sherwood
+Poornima Sewak,
+Michael Meder,
+Emily Turner-Sherwood,
 Maria Garcia
 
 Acknowledgments:
