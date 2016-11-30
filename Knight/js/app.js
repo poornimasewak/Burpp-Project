@@ -28,7 +28,6 @@ $(document).ready(function() {
     //Create login button
 
     $('#login-btn').on('click', function() {
-
         // open Database
         database = firebase.database();
         nameInput = $("#name-i").val().trim();
@@ -40,11 +39,10 @@ $(document).ready(function() {
             });
         console.log('$("#login-btn").on("click", function() ');
         //Changing the HTML to display login name
-        $('.top-right').html('Welcome,' + ' ' + nameInput);
+        $('.top-right').html('Welcome,' + ' ' + emailInput);
 
-        return false;
-
-    });
+    return false;
+});
 
 
     // Capture Log Out Button Click
