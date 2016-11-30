@@ -35,9 +35,7 @@ $(document).ready(function() {
         firebase.auth().signInWithEmailAndPassword(emailInput, nameInput)
             .catch(function(error) {
                 alert(error.message + "\nFirebase error.code: " + error.code);
-                console.log(error);
             });
-        console.log('$("#login-btn").on("click", function() ');
         //Changing the HTML to display login name
         $('.top-right').html('Welcome,' + ' ' + emailInput);
 
@@ -53,7 +51,6 @@ $(document).ready(function() {
         nameInput = "";
         emailInput = "";
         // userLoggedIn = false; set in auth().onAuthStateChanged
-        console.log('$("#logout-btn").on("click", function() ');
         // Don't refresh the page!
         return false;
     });
@@ -61,7 +58,6 @@ $(document).ready(function() {
     // Capture Login,logout, and new user Events
     firebase.auth().onAuthStateChanged(function(user_obj) {
         if (user_obj) {
-            console.log(user_obj);
             // Log In
             if (database) {
                 $("#myModal").modal('hide');
@@ -75,10 +71,9 @@ $(document).ready(function() {
             firebaseRecipes = [];
             $(".div-saved-recipes").empty();
             $("#btn-show-recipes").hide();
-            // $("#logout-btn").hide();
+            $("#logout-btn").hide();
             $('#myModal').modal('show');
         }
-        console.log('firebase.auth().onAuthStateChanged(function(nameInput_obj) ');
         // Don't refresh the page!
         return false;
     });
@@ -92,27 +87,10 @@ $(document).ready(function() {
         firebase.auth().createUserWithEmailAndPassword(emailInput, nameInput)
             .catch(function(error) {
                 alert(error.message + "\nFirebase error.code: " + error.code);
-                console.log(error);
             });
-        console.log('$("#new-user-btn").on("click", function() ');
         // Don't refresh the page!
         return false;
     });
-
-    // if ($('#namei').text() === '')
-    //     $('#myModal').modal('show');
-    // else {
-    //     nameInput = $('#namei').val().trim();
-    //     emailInput = $('#emaili').val().trim();
-    //     $('.top-right').html('Welcome,' + ' ' + nameInput);
-    //     $('#myModal').modal('hide');
-    //     return false;
-    // }
-
-    // database.ref().push({
-    //     nameInput: nameInput,
-    //     emailInput: emailInput,
-    // });
 
     // Food and Location Button Click
     $("#btn-food").on("click", function() {
@@ -175,7 +153,6 @@ $(document).ready(function() {
         }
         $(".div-saved-recipes").append(divSavedRecipeBody);
 
-        console.log('$("#btn-show-recipes").on("click", function() ');
         // Don't refresh the page!
         return false;
     });
@@ -196,7 +173,6 @@ $(document).ready(function() {
     function getFirebaseRecipes() {
         firebaseRecipes = [];
         database.ref().on("value", function(snapshot) {
-            console.log('value', snapshot.val());
 
             var query = firebase.database().ref("user/" + nameInput).orderByKey();
             // For each recipe
@@ -208,9 +184,8 @@ $(document).ready(function() {
                 });
             });
         }, function(errorObject) {
-            console.log("The firebase read failed: " + errorObject.code);
         });
-        console.log('("#get-data").on("click", function() ');
+       
         // Don't refresh the page!
         return false;
     }
@@ -222,7 +197,6 @@ $(document).ready(function() {
             recipe: recipe,
             url: url,
         });
-        console.log('("#add-data").on("click", function() ');
 
         // Don't refresh the page!
         return false;
@@ -244,14 +218,12 @@ $(document).ready(function() {
             url: queryURL,
             method: 'GET'
         };
-        console.log("url before query: " + queryURL);
 
         $.ajax({
                 url: queryURL,
                 method: 'GET'
             })
             .done(function(response) {
-                console.log(".done: " + response);
 
                 $('.div-recipe-area').empty();
                 makeRecipeDivHeading();
@@ -375,10 +347,10 @@ $(document).ready(function() {
                 'cache': true
             })
             .done(function(data, textStatus, jqXHR) {
-                console.log('success[' + data + '], status[' + textStatus + '], jqXHR[' + JSON.stringify(jqXHR) + ']');
+            
             })
             .fail(function(jqXHR, textStatus, errorThrown) {
-                console.log('error[' + errorThrown + '], status[' + textStatus + '], jqXHR[' + JSON.stringify(jqXHR) + ']');
+               
             });
     }
 
@@ -513,7 +485,6 @@ $(document).ready(function() {
         try {
             response = JSON.parse(edamam_str);
         } catch (err) {
-            console.log(err.message);
             return;
         }
 
@@ -529,7 +500,6 @@ $(document).ready(function() {
         try {
             response = JSON.parse(yelp_str);
         } catch (err) {
-            console.log(err.message);
             return;
         }
         makeYelpDiv(response);
