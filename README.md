@@ -36,9 +36,9 @@ Had some trouble with the Yelp API call. Had to work with OAuth to get it workin
 
 Authors:
 (Found on Team page on app)
-Poornima Sewak
-Michael Meder
-Emily Turner-Sherwood
+Poornima Sewak,
+Michael Meder,
+Emily Turner-Sherwood,
 Maria Garcia
 
 Acknowledgments:
