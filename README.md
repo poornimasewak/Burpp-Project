@@ -1,6 +1,8 @@
 # Burpp
 A one-stop food app that caters to everyday food indecision. This app will allow you to search for any cuisine/ingredient and will cleanly display all of your available dine-in or cooking options nearby.
 
+![ScreenShot](https://still-cliffs-87266.herokuapp.com/)
+
 Our App:
 We were all very passionate about food and eating but we also recognized that we live in a fast-paced world and needed a food app that could keep up with our constant indecision. By putting recipes and restaurants side-by-side, it will allow the user the freedom to change their mind on a whim.
 
